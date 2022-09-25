@@ -1,0 +1,3106 @@
+Determining if compiler supports C11 _Thread_local failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a2fb2/fast && make  -f CMakeFiles/cmTC_a2fb2.dir/build.make CMakeFiles/cmTC_a2fb2.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2fb2.dir/cm_c11_thread_local.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_a2fb2.dir/cm_c11_thread_local.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_c11_thread_local.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_c11_thread_local.c:1:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'int'
+ _Thread_local int i = 42;
+               ^
+make[1]: *** [CMakeFiles/cmTC_a2fb2.dir/cm_c11_thread_local.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a2fb2/fast] Error 2
+
+
+
+Determining if compiler supports needed C++14 constructs failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_50715/fast && make  -f CMakeFiles/cmTC_50715.dir/build.make CMakeFiles/cmTC_50715.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_50715.dir/cm_cxx14_check.cpp.o
+/usr/bin/g++   -std=gnu++1y -o CMakeFiles/cmTC_50715.dir/cm_cxx14_check.cpp.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx14_check.cpp
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx14_check.cpp: In function 'int main()':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx14_check.cpp:8:13: error: 'cbegin' is not a member of 'std'
+   auto ai = std::cbegin(a);
+             ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx14_check.cpp:11:13: error: 'cend' is not a member of 'std'
+   auto bi = std::cend(b);
+             ^
+make[1]: *** [CMakeFiles/cmTC_50715.dir/cm_cxx14_check.cpp.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_50715/fast] Error 2
+
+
+
+Determining if compiler supports C++ make_unique failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0367d/fast && make  -f CMakeFiles/cmTC_0367d.dir/build.make CMakeFiles/cmTC_0367d.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0367d.dir/cm_cxx_make_unique.cxx.o
+/usr/bin/g++   -std=gnu++11 -o CMakeFiles/cmTC_0367d.dir/cm_cxx_make_unique.cxx.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx_make_unique.cxx
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx_make_unique.cxx: In function 'int main()':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx_make_unique.cxx:4:28: error: 'make_unique' is not a member of 'std'
+   std::unique_ptr<int> u = std::make_unique<int>(0);
+                            ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/Checks/cm_cxx_make_unique.cxx:4:45: error: expected primary-expression before 'int'
+   std::unique_ptr<int> u = std::make_unique<int>(0);
+                                             ^
+make[1]: *** [CMakeFiles/cmTC_0367d.dir/cm_cxx_make_unique.cxx.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_0367d/fast] Error 2
+
+
+
+Determining if the environ exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e3e90/fast && make  -f CMakeFiles/cmTC_e3e90.dir/build.make CMakeFiles/cmTC_e3e90.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3e90.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -std=gnu99 -o CMakeFiles/cmTC_e3e90.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'environ' undeclared (first use in this function)
+   return ((int*)(&environ))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_e3e90.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e3e90/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_32568/fast && make  -f CMakeFiles/cmTC_32568.dir/build.make CMakeFiles/cmTC_32568.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_32568.dir/src.c.o
+/usr/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu99 -o CMakeFiles/cmTC_32568.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_32568
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_32568.dir/link.txt --verbose=1
+/usr/bin/gcc CMakeFiles/cmTC_32568.dir/src.c.o -o cmTC_32568 
+CMakeFiles/cmTC_32568.dir/src.c.o: In function `main':
+src.c:(.text+0x2d): undefined reference to `pthread_create'
+src.c:(.text+0x39): undefined reference to `pthread_detach'
+src.c:(.text+0x45): undefined reference to `pthread_cancel'
+src.c:(.text+0x56): undefined reference to `pthread_join'
+src.c:(.text+0x6a): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_32568] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_32568/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ce74b/fast && make  -f CMakeFiles/cmTC_ce74b.dir/build.make CMakeFiles/cmTC_ce74b.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce74b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu99 -o CMakeFiles/cmTC_ce74b.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ce74b
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_ce74b.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_ce74b.dir/CheckFunctionExists.c.o -o cmTC_ce74b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_ce74b] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ce74b/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b20f5/fast && make  -f CMakeFiles/cmTC_b20f5.dir/build.make CMakeFiles/cmTC_b20f5.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b20f5.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++11 -o CMakeFiles/cmTC_b20f5.dir/kwsysPlatformTestsCXX.cxx.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function 'int main()':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: 'environ' was not declared in this scope
+   char* e = environ[0];
+             ^
+make[1]: *** [CMakeFiles/cmTC_b20f5.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b20f5/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_251ab/fast && make  -f CMakeFiles/cmTC_251ab.dir/build.make CMakeFiles/cmTC_251ab.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_251ab.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++11 -o CMakeFiles/cmTC_251ab.dir/kwsysPlatformTestsCXX.cxx.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function 'int main()':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: 'struct stat' has no member named 'st_mtimespec'
+   (void)stat1.st_mtimespec.tv_sec;
+               ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: 'struct stat' has no member named 'st_mtimespec'
+   (void)stat1.st_mtimespec.tv_nsec;
+               ^
+make[1]: *** [CMakeFiles/cmTC_251ab.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [cmTC_251ab/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_78be3/fast && make  -f CMakeFiles/cmTC_78be3.dir/build.make CMakeFiles/cmTC_78be3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78be3.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu99 -o CMakeFiles/cmTC_78be3.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_78be3
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_78be3.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_78be3.dir/CheckFunctionExists.c.o -o cmTC_78be3  -lsocket -ldl 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_78be3] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_78be3/fast] Error 2
+
+
+
+Determining if the RAND_status exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_16cbe/fast && make  -f CMakeFiles/cmTC_16cbe.dir/build.make CMakeFiles/cmTC_16cbe.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16cbe.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_16cbe.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: 'RAND_status' undeclared (first use in this function)
+   return ((int*)(&RAND_status))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_16cbe.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_16cbe/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_status
+  return ((int*)(&RAND_status))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_screen exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_26a28/fast && make  -f CMakeFiles/cmTC_26a28.dir/build.make CMakeFiles/cmTC_26a28.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26a28.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_26a28.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: 'RAND_screen' undeclared (first use in this function)
+   return ((int*)(&RAND_screen))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_26a28.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_26a28/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_screen
+  return ((int*)(&RAND_screen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_egd exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6261e/fast && make  -f CMakeFiles/cmTC_6261e.dir/build.make CMakeFiles/cmTC_6261e.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6261e.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_6261e.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: 'RAND_egd' undeclared (first use in this function)
+   return ((int*)(&RAND_egd))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_6261e.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_6261e/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_egd
+  return ((int*)(&RAND_egd))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function dlopen exists in the dl;/usr/lib/x86_64-linux-gnu/libssl.so;/usr/lib/x86_64-linux-gnu/libcrypto.so;cmnghttp2 failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fbc2c/fast && make  -f CMakeFiles/cmTC_fbc2c.dir/build.make CMakeFiles/cmTC_fbc2c.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fbc2c.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu99 -o CMakeFiles/cmTC_fbc2c.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fbc2c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_fbc2c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_fbc2c.dir/CheckFunctionExists.c.o -o cmTC_fbc2c  -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lcmnghttp2 
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_fbc2c] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_fbc2c/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b10ce/fast && make  -f CMakeFiles/cmTC_b10ce.dir/build.make CMakeFiles/cmTC_b10ce.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b10ce.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_b10ce.dir/HAVE_SYS_FILIO_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:23: fatal error: sys/filio.h: No such file or directory
+ #include <sys/filio.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b10ce.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b10ce/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1eb16/fast && make  -f CMakeFiles/cmTC_1eb16.dir/build.make CMakeFiles/cmTC_1eb16.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1eb16.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_1eb16.dir/HAVE_SYS_SOCKIO_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:24: fatal error: sys/sockio.h: No such file or directory
+ #include <sys/sockio.h>
+                        ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_1eb16.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_1eb16/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4a9f7/fast && make  -f CMakeFiles/cmTC_4a9f7.dir/build.make CMakeFiles/cmTC_4a9f7.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4a9f7.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_4a9f7.dir/HAVE_SYS_UTIME_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:23: fatal error: sys/utime.h: No such file or directory
+ #include <sys/utime.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4a9f7.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4a9f7/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;idn2.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_81e06/fast && make  -f CMakeFiles/cmTC_81e06.dir/build.make CMakeFiles/cmTC_81e06.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81e06.dir/HAVE_IDN2_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_81e06.dir/HAVE_IDN2_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c:22:18: fatal error: idn2.h: No such file or directory
+ #include <idn2.h>
+                  ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_81e06.dir/HAVE_IDN2_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_81e06/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_aa5cb/fast && make  -f CMakeFiles/cmTC_aa5cb.dir/build.make CMakeFiles/cmTC_aa5cb.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa5cb.dir/HAVE_IO_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_aa5cb.dir/HAVE_IO_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:23:16: fatal error: io.h: No such file or directory
+ #include <io.h>
+                ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_aa5cb.dir/HAVE_IO_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_aa5cb/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_5862f/fast && make  -f CMakeFiles/cmTC_5862f.dir/build.make CMakeFiles/cmTC_5862f.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5862f.dir/HAVE_KRB_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_5862f.dir/HAVE_KRB_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:23:17: fatal error: krb.h: No such file or directory
+ #include <krb.h>
+                 ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_5862f.dir/HAVE_KRB_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_5862f/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cd5e9/fast && make  -f CMakeFiles/cmTC_cd5e9.dir/build.make CMakeFiles/cmTC_cd5e9.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd5e9.dir/HAVE_PEM_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_cd5e9.dir/HAVE_PEM_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:29:17: fatal error: pem.h: No such file or directory
+ #include <pem.h>
+                 ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_cd5e9.dir/HAVE_PEM_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_cd5e9/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_07501/fast && make  -f CMakeFiles/cmTC_07501.dir/build.make CMakeFiles/cmTC_07501.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_07501.dir/HAVE_SSL_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_07501.dir/HAVE_SSL_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:33:17: fatal error: ssl.h: No such file or directory
+ #include <ssl.h>
+                 ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_07501.dir/HAVE_SSL_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_07501/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ad41e/fast && make  -f CMakeFiles/cmTC_ad41e.dir/build.make CMakeFiles/cmTC_ad41e.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ad41e.dir/HAVE_X509_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_ad41e.dir/HAVE_X509_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:45:18: fatal error: x509.h: No such file or directory
+ #include <x509.h>
+                  ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_ad41e.dir/HAVE_X509_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ad41e/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_5d43d/fast && make  -f CMakeFiles/cmTC_5d43d.dir/build.make CMakeFiles/cmTC_5d43d.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5d43d.dir/HAVE_PROCESS_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_5d43d.dir/HAVE_PROCESS_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:45:21: fatal error: process.h: No such file or directory
+ #include <process.h>
+                     ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_5d43d.dir/HAVE_PROCESS_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_5d43d/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3ace6/fast && make  -f CMakeFiles/cmTC_3ace6.dir/build.make CMakeFiles/cmTC_3ace6.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ace6.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_3ace6.dir/HAVE_SOCKIO_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:51:20: fatal error: sockio.h: No such file or directory
+ #include <sockio.h>
+                    ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_3ace6.dir/HAVE_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_3ace6/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_aace1/fast && make  -f CMakeFiles/cmTC_aace1.dir/build.make CMakeFiles/cmTC_aace1.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aace1.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_aace1.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'stricmp' undeclared (first use in this function)
+   return ((int*)(&stricmp))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_aace1.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_aace1/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ecee6/fast && make  -f CMakeFiles/cmTC_ecee6.dir/build.make CMakeFiles/cmTC_ecee6.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ecee6.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_ecee6.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'strcmpi' undeclared (first use in this function)
+   return ((int*)(&strcmpi))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_ecee6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ecee6/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_34ab6/fast && make  -f CMakeFiles/cmTC_34ab6.dir/build.make CMakeFiles/cmTC_34ab6.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34ab6.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_34ab6.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'strncmpi' undeclared (first use in this function)
+   return ((int*)(&strncmpi))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_34ab6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_34ab6/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f25ab/fast && make  -f CMakeFiles/cmTC_f25ab.dir/build.make CMakeFiles/cmTC_f25ab.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f25ab.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_f25ab.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'closesocket' undeclared (first use in this function)
+   return ((int*)(&closesocket))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_f25ab.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f25ab/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_99081/fast && make  -f CMakeFiles/cmTC_99081.dir/build.make CMakeFiles/cmTC_99081.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_99081.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_99081.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'getpass_r' undeclared (first use in this function)
+   return ((int*)(&getpass_r))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_99081.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_99081/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0caf4/fast && make  -f CMakeFiles/cmTC_0caf4.dir/build.make CMakeFiles/cmTC_0caf4.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0caf4.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_0caf4.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: '_strtoi64' undeclared (first use in this function)
+   return ((int*)(&_strtoi64))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_0caf4.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_0caf4/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_74bd8/fast && make  -f CMakeFiles/cmTC_74bd8.dir/build.make CMakeFiles/cmTC_74bd8.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74bd8.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_74bd8.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: error: 'setmode' undeclared (first use in this function)
+   return ((int*)(&setmode))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:57:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_74bd8.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_74bd8/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a343e/fast && make  -f CMakeFiles/cmTC_a343e.dir/build.make CMakeFiles/cmTC_a343e.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a343e.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu99 -o CMakeFiles/cmTC_a343e.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a343e
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_a343e.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_a343e.dir/CheckFunctionExists.c.o -o cmTC_a343e 
+CMakeFiles/cmTC_a343e.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_a343e] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a343e/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3fe92/fast && make  -f CMakeFiles/cmTC_3fe92.dir/build.make CMakeFiles/cmTC_3fe92.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3fe92.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_3fe92.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:443:3: error: too many arguments to function 'fsetxattr'
+   fsetxattr(0, 0, 0, 0, 0, 0);
+   ^
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:440:0:
+/usr/include/x86_64-linux-gnu/sys/xattr.h:52:12: note: declared here
+ extern int fsetxattr (int __fd, const char *__name, const void *__value,
+            ^
+make[1]: *** [CMakeFiles/cmTC_3fe92.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_3fe92/fast] Error 2
+
+
+Determining size of ADDRESS_FAMILY failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_abee5/fast && make  -f CMakeFiles/cmTC_abee5.dir/build.make CMakeFiles/cmTC_abee5.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_abee5.dir/SIZEOF_ADDRESS_FAMILY.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_abee5.dir/SIZEOF_ADDRESS_FAMILY.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckTypeSize/SIZEOF_ADDRESS_FAMILY.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckTypeSize/SIZEOF_ADDRESS_FAMILY.c:4:20: fatal error: ws2def.h: No such file or directory
+ #include "ws2def.h"
+                    ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_abee5.dir/SIZEOF_ADDRESS_FAMILY.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_abee5/fast] Error 2
+
+
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckTypeSize/SIZEOF_ADDRESS_FAMILY.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "ws2def.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(ADDRESS_FAMILY))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_67aab/fast && make  -f CMakeFiles/cmTC_67aab.dir/build.make CMakeFiles/cmTC_67aab.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_67aab.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_67aab.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:241:44: error: 'FIONBIO' undeclared (first use in this function)
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                                            ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:241:44: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_67aab.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_67aab/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7463c/fast && make  -f CMakeFiles/cmTC_7463c.dir/build.make CMakeFiles/cmTC_7463c.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7463c.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_7463c.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_7463c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_7463c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_7463c.dir/CurlTests.c.o -o cmTC_7463c 
+CMakeFiles/cmTC_7463c.dir/CurlTests.c.o: In function `main':
+CurlTests.c:(.text+0x19): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_7463c] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7463c/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_783f3/fast && make  -f CMakeFiles/cmTC_783f3.dir/build.make CMakeFiles/cmTC_783f3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_783f3.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_783f3.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:289:32: error: 'FIONBIO' undeclared (first use in this function)
+         if(0 != IoctlSocket(0, FIONBIO, &flags))
+                                ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:289:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_783f3.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_783f3/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3389d/fast && make  -f CMakeFiles/cmTC_3389d.dir/build.make CMakeFiles/cmTC_3389d.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3389d.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_3389d.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:312:32: error: 'FIONBIO' undeclared (first use in this function)
+         if(0 != ioctlsocket(0, FIONBIO, &flags))
+                                ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:312:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3389d.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_3389d/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f8315/fast && make  -f CMakeFiles/cmTC_f8315.dir/build.make CMakeFiles/cmTC_f8315.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8315.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_f8315.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:404:43: error: 'SO_NONBLOCK' undeclared (first use in this function)
+         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+                                           ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:404:43: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_f8315.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f8315/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3df3f/fast && make  -f CMakeFiles/cmTC_3df3f.dir/build.make CMakeFiles/cmTC_3df3f.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3df3f.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_3df3f.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_3df3f
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_3df3f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_3df3f.dir/CurlTests.c.o -o cmTC_3df3f 
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_3df3f] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_3df3f/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f97be/fast && make  -f CMakeFiles/cmTC_f97be.dir/build.make CMakeFiles/cmTC_f97be.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f97be.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_f97be.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:97:23: error: storage size of 'hdata' isn't known
+   struct hostent_data hdata;
+                       ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:109:3: error: too few arguments to function 'gethostbyname_r'
+   rc = gethostbyname_r(address, &h, &hdata);
+   ^
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:87:0:
+/usr/include/netdb.h:179:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^
+make[1]: *** [CMakeFiles/cmTC_f97be.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f97be/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f0ec1/fast && make  -f CMakeFiles/cmTC_f0ec1.dir/build.make CMakeFiles/cmTC_f0ec1.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f0ec1.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_f0ec1.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:112:3: error: too few arguments to function 'gethostbyname_r'
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+   ^
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:87:0:
+/usr/include/netdb.h:179:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^
+make[1]: *** [CMakeFiles/cmTC_f0ec1.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f0ec1/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_972fa/fast && make  -f CMakeFiles/cmTC_972fa.dir/build.make CMakeFiles/cmTC_972fa.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_972fa.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_972fa.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:97:23: error: storage size of 'hdata' isn't known
+   struct hostent_data hdata;
+                       ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:109:3: error: too few arguments to function 'gethostbyname_r'
+   rc = gethostbyname_r(address, &h, &hdata);
+   ^
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:87:0:
+/usr/include/netdb.h:179:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^
+make[1]: *** [CMakeFiles/cmTC_972fa.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_972fa/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f87a3/fast && make  -f CMakeFiles/cmTC_f87a3.dir/build.make CMakeFiles/cmTC_f87a3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f87a3.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_f87a3.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:112:3: error: too few arguments to function 'gethostbyname_r'
+   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+   ^
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:87:0:
+/usr/include/netdb.h:179:12: note: declared here
+ extern int gethostbyname_r (const char *__restrict __name,
+            ^
+make[1]: *** [CMakeFiles/cmTC_f87a3.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f87a3/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_33396/fast && make  -f CMakeFiles/cmTC_33396.dir/build.make CMakeFiles/cmTC_33396.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_33396.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_33396.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:420:51: error: subscripted value is neither array nor pointer nor vector
+   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+                                                   ^
+make[1]: *** [CMakeFiles/cmTC_33396.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_33396/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6940a/fast && make  -f CMakeFiles/cmTC_6940a.dir/build.make CMakeFiles/cmTC_6940a.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6940a.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_STROPTS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu99 -o CMakeFiles/cmTC_6940a.dir/CurlTests.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:467:26: error: 'macOS' undeclared (first use in this function)
+   if(__builtin_available(macOS 10.12, *)) {}
+                          ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:467:26: note: each undeclared identifier is reported only once for each function it appears in
+/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/cmcurl/CMake/CurlTests.c:467:32: error: expected ')' before numeric constant
+   if(__builtin_available(macOS 10.12, *)) {}
+                                ^
+make[1]: *** [CMakeFiles/cmTC_6940a.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_6940a/fast] Error 2
+
+
+Determining if the getrandom exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7e76b/fast && make  -f CMakeFiles/cmTC_7e76b.dir/build.make CMakeFiles/cmTC_7e76b.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e76b.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_7e76b.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:24: fatal error: sys/random.h: No such file or directory
+ #include <sys/random.h>
+                        ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_7e76b.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7e76b/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/random.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getrandom
+  return ((int*)(&getrandom))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_72985/fast && make  -f CMakeFiles/cmTC_72985.dir/build.make CMakeFiles/cmTC_72985.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72985.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_72985.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'arc4random_buf' undeclared (first use in this function)
+   return ((int*)(&arc4random_buf))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_72985.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_72985/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a6fcc/fast && make  -f CMakeFiles/cmTC_a6fcc.dir/build.make CMakeFiles/cmTC_a6fcc.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a6fcc.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu99 -o CMakeFiles/cmTC_a6fcc.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'arc4random' undeclared (first use in this function)
+   return ((int*)(&arc4random))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a6fcc.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a6fcc/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_SYSCALL_GETRANDOM failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b85df/fast && make  -f CMakeFiles/cmTC_b85df.dir/build.make CMakeFiles/cmTC_b85df.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b85df.dir/src.c.o
+/usr/bin/gcc -DHAVE_SYSCALL_GETRANDOM  -w  -std=gnu99 -o CMakeFiles/cmTC_b85df.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:6:21: error: 'SYS_getrandom' undeclared (first use in this function)
+             syscall(SYS_getrandom, NULL, 0, 0);
+                     ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:6:21: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_b85df.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b85df/fast] Error 2
+
+
+Source file was:
+
+        #include <stdlib.h>  /* for NULL */
+        #include <unistd.h>  /* for syscall */
+        #include <sys/syscall.h>  /* for SYS_getrandom */
+        int main() {
+            syscall(SYS_getrandom, NULL, 0, 0);
+            return 0;
+        }
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f68a3/fast && make  -f CMakeFiles/cmTC_f68a3.dir/build.make CMakeFiles/cmTC_f68a3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f68a3.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_f68a3.dir/HAVE_COPYFILE_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:22: fatal error: copyfile.h: No such file or directory
+ #include <copyfile.h>
+                      ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_f68a3.dir/HAVE_COPYFILE_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f68a3/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a9c49/fast && make  -f CMakeFiles/cmTC_a9c49.dir/build.make CMakeFiles/cmTC_a9c49.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9c49.dir/HAVE_DIRECT_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_a9c49.dir/HAVE_DIRECT_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:20: fatal error: direct.h: No such file or directory
+ #include <direct.h>
+                    ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_a9c49.dir/HAVE_DIRECT_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a9c49/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e2a15/fast && make  -f CMakeFiles/cmTC_e2a15.dir/build.make CMakeFiles/cmTC_e2a15.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2a15.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_e2a15.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:28: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_e2a15.dir/HAVE_EXT2FS_EXT2_FS_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e2a15/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_822a7/fast && make  -f CMakeFiles/cmTC_822a7.dir/build.make CMakeFiles/cmTC_822a7.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_822a7.dir/src.c.o
+/usr/bin/gcc -DHAVE_WORKING_EXT2_IOC_GETFLAGS  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_822a7.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:2:28: fatal error: ext2fs/ext2_fs.h: No such file or directory
+ #include <ext2fs/ext2_fs.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_822a7.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_822a7/fast] Error 2
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2c216/fast && make  -f CMakeFiles/cmTC_2c216.dir/build.make CMakeFiles/cmTC_2c216.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c216.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_2c216.dir/HAVE_MEMBERSHIP_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:15:24: fatal error: membership.h: No such file or directory
+ #include <membership.h>
+                        ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_2c216.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_2c216/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_09776/fast && make  -f CMakeFiles/cmTC_09776.dir/build.make CMakeFiles/cmTC_09776.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_09776.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_09776.dir/HAVE_READPASSPHRASE_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:20:28: fatal error: readpassphrase.h: No such file or directory
+ #include <readpassphrase.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_09776.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_09776/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0da22/fast && make  -f CMakeFiles/cmTC_0da22.dir/build.make CMakeFiles/cmTC_0da22.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0da22.dir/HAVE_SYS_ACL_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_0da22.dir/HAVE_SYS_ACL_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:27:21: fatal error: sys/acl.h: No such file or directory
+ #include <sys/acl.h>
+                     ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_0da22.dir/HAVE_SYS_ACL_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_0da22/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_39530/fast && make  -f CMakeFiles/cmTC_39530.dir/build.make CMakeFiles/cmTC_39530.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_39530.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_39530.dir/HAVE_SYS_EXTATTR_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:28:25: fatal error: sys/extattr.h: No such file or directory
+ #include <sys/extattr.h>
+                         ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_39530.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_39530/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9ab57/fast && make  -f CMakeFiles/cmTC_9ab57.dir/build.make CMakeFiles/cmTC_9ab57.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ab57.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_9ab57.dir/HAVE_SYS_MKDEV_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:29:23: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_9ab57.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_9ab57/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7d1f2/fast && make  -f CMakeFiles/cmTC_7d1f2.dir/build.make CMakeFiles/cmTC_7d1f2.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d1f2.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_7d1f2.dir/HAVE_SYS_MOUNT_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:12:0:
+/usr/include/x86_64-linux-gnu/sys/mount.h:35:3: error: expected identifier before numeric constant
+   MS_RDONLY = 1,  /* Mount read-only.  */
+   ^
+make[1]: *** [CMakeFiles/cmTC_7d1f2.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7d1f2/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b5539/fast && make  -f CMakeFiles/cmTC_b5539.dir/build.make CMakeFiles/cmTC_b5539.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5539.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_b5539.dir/HAVE_SYS_RICHACL_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:31:25: fatal error: sys/richacl.h: No such file or directory
+ #include <sys/richacl.h>
+                         ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b5539.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b5539/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d45e0/fast && make  -f CMakeFiles/cmTC_d45e0.dir/build.make CMakeFiles/cmTC_d45e0.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d45e0.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_d45e0.dir/HAVE_WINDOWS_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:46:21: fatal error: windows.h: No such file or directory
+ #include <windows.h>
+                     ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_d45e0.dir/HAVE_WINDOWS_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_d45e0/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_248f3/fast && make  -f CMakeFiles/cmTC_248f3.dir/build.make CMakeFiles/cmTC_248f3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_248f3.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_248f3.dir/HAVE_WINCRYPT_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:46:22: fatal error: wincrypt.h: No such file or directory
+ #include <wincrypt.h>
+                      ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_248f3.dir/HAVE_WINCRYPT_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_248f3/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b7372/fast && make  -f CMakeFiles/cmTC_b7372.dir/build.make CMakeFiles/cmTC_b7372.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b7372.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_b7372.dir/HAVE_WINIOCTL_H.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:46:22: fatal error: winioctl.h: No such file or directory
+ #include <winioctl.h>
+                      ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b7372.dir/HAVE_WINIOCTL_H.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b7372/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_660db/fast && make  -f CMakeFiles/cmTC_660db.dir/build.make CMakeFiles/cmTC_660db.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_660db.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_660db.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_660db
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_660db.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_660db.dir/CheckFunctionExists.c.o -o cmTC_660db 
+CMakeFiles/cmTC_660db.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `getvfsbyname'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_660db] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_660db/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9a2f6/fast && make  -f CMakeFiles/cmTC_9a2f6.dir/build.make CMakeFiles/cmTC_9a2f6.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a2f6.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_9a2f6.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9a2f6
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9a2f6.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_9a2f6.dir/CheckFunctionExists.c.o -o cmTC_9a2f6 
+CMakeFiles/cmTC_9a2f6.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `lchflags'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_9a2f6] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_9a2f6/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_86bf3/fast && make  -f CMakeFiles/cmTC_86bf3.dir/build.make CMakeFiles/cmTC_86bf3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86bf3.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_86bf3.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_86bf3
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_86bf3.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_86bf3.dir/CheckFunctionExists.c.o -o cmTC_86bf3 
+CMakeFiles/cmTC_86bf3.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `readpassphrase'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_86bf3] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_86bf3/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b6ffc/fast && make  -f CMakeFiles/cmTC_b6ffc.dir/build.make CMakeFiles/cmTC_b6ffc.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6ffc.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_b6ffc.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b6ffc
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_b6ffc.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_b6ffc.dir/CheckFunctionExists.c.o -o cmTC_b6ffc 
+CMakeFiles/cmTC_b6ffc.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `strncpy_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_b6ffc] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_b6ffc/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_11ff0/fast && make  -f CMakeFiles/cmTC_11ff0.dir/build.make CMakeFiles/cmTC_11ff0.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11ff0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_11ff0.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_11ff0
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_11ff0.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_11ff0.dir/CheckFunctionExists.c.o -o cmTC_11ff0 
+CMakeFiles/cmTC_11ff0.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_ctime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_11ff0] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_11ff0/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7cee3/fast && make  -f CMakeFiles/cmTC_7cee3.dir/build.make CMakeFiles/cmTC_7cee3.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7cee3.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_7cee3.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7cee3
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_7cee3.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_7cee3.dir/CheckFunctionExists.c.o -o cmTC_7cee3 
+CMakeFiles/cmTC_7cee3.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_fseeki64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_7cee3] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7cee3/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ccc09/fast && make  -f CMakeFiles/cmTC_ccc09.dir/build.make CMakeFiles/cmTC_ccc09.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ccc09.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_ccc09.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ccc09
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_ccc09.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_ccc09.dir/CheckFunctionExists.c.o -o cmTC_ccc09 
+CMakeFiles/cmTC_ccc09.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_get_timezone'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_ccc09] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ccc09/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2fa91/fast && make  -f CMakeFiles/cmTC_2fa91.dir/build.make CMakeFiles/cmTC_2fa91.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2fa91.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_2fa91.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2fa91
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_2fa91.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_2fa91.dir/CheckFunctionExists.c.o -o cmTC_2fa91 
+CMakeFiles/cmTC_2fa91.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_gmtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_2fa91] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_2fa91/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4704f/fast && make  -f CMakeFiles/cmTC_4704f.dir/build.make CMakeFiles/cmTC_4704f.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4704f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_4704f.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4704f
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_4704f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_4704f.dir/CheckFunctionExists.c.o -o cmTC_4704f 
+CMakeFiles/cmTC_4704f.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_localtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_4704f] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4704f/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_18b5f/fast && make  -f CMakeFiles/cmTC_18b5f.dir/build.make CMakeFiles/cmTC_18b5f.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_18b5f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_18b5f.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_18b5f
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_18b5f.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_18b5f.dir/CheckFunctionExists.c.o -o cmTC_18b5f 
+CMakeFiles/cmTC_18b5f.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_mkgmtime64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_18b5f] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_18b5f/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e6602/fast && make  -f CMakeFiles/cmTC_e6602.dir/build.make CMakeFiles/cmTC_e6602.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6602.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin    -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_e6602.dir/CheckFunctionExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e6602
+/root/pakages/copy/cryptdb/cmake-3.24.2/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_e6602.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_e6602.dir/CheckFunctionExists.c.o -o cmTC_e6602 
+CMakeFiles/cmTC_e6602.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cygwin_conv_path'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_e6602] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e6602/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fbd58/fast && make  -f CMakeFiles/cmTC_fbd58.dir/build.make CMakeFiles/cmTC_fbd58.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fbd58.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_VFSCONF  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_fbd58.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of 'v' isn't known
+ int main(void) { struct vfsconf v; return sizeof(v);}
+                                 ^
+make[1]: *** [CMakeFiles/cmTC_fbd58.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_fbd58/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_df2b7/fast && make  -f CMakeFiles/cmTC_df2b7.dir/build.make CMakeFiles/cmTC_df2b7.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df2b7.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_XVFSCONF  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_df2b7.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of 'v' isn't known
+ int main(void) { struct xvfsconf v; return sizeof(v);}
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_df2b7.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_df2b7/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_afdb8/fast && make  -f CMakeFiles/cmTC_afdb8.dir/build.make CMakeFiles/cmTC_afdb8.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_afdb8.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STATFS  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_afdb8.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:3:32: error: storage size of 's' isn't known
+ int main(void) { struct statfs s; return sizeof(s);}
+                                ^
+make[1]: *** [CMakeFiles/cmTC_afdb8.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_afdb8/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct statfs s; return sizeof(s);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c95b8/fast && make  -f CMakeFiles/cmTC_c95b8.dir/build.make CMakeFiles/cmTC_c95b8.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c95b8.dir/src.c.o
+/usr/bin/gcc -DMAJOR_IN_MKDEV  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_c95b8.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:1:23: fatal error: sys/mkdev.h: No such file or directory
+ #include <sys/mkdev.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_c95b8.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_c95b8/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e33db/fast && make  -f CMakeFiles/cmTC_e33db.dir/build.make CMakeFiles/cmTC_e33db.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e33db.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_e33db.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'EFTYPE' undeclared (first use in this function)
+   return ((int*)(&EFTYPE))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_e33db.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e33db/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3c5e2/fast && make  -f CMakeFiles/cmTC_3c5e2.dir/build.make CMakeFiles/cmTC_3c5e2.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c5e2.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_3c5e2.dir/CheckSymbolExists.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'D_MD_ORDER' undeclared (first use in this function)
+   return ((int*)(&D_MD_ORDER))[argc];
+                   ^
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3c5e2.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_3c5e2/fast] Error 2
+
+
+File /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7b94b/fast && make  -f CMakeFiles/cmTC_7b94b.dir/build.make CMakeFiles/cmTC_7b94b.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b94b.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_TM___TM_GMTOFF  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_7b94b.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:6:32: error: 'struct tm' has no member named '__tm_gmtoff'
+   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+                                ^
+make[1]: *** [CMakeFiles/cmTC_7b94b.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7b94b/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_87adf/fast && make  -f CMakeFiles/cmTC_87adf.dir/build.make CMakeFiles/cmTC_87adf.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_87adf.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_BIRTHTIME  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_87adf.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_birthtime'
+   (void)sizeof(((struct stat *)0)->st_birthtime);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_87adf.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_87adf/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_57c76/fast && make  -f CMakeFiles/cmTC_57c76.dir/build.make CMakeFiles/cmTC_57c76.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57c76.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_57c76.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_birthtimespec'
+   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_57c76.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_57c76/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_76bbe/fast && make  -f CMakeFiles/cmTC_76bbe.dir/build.make CMakeFiles/cmTC_76bbe.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76bbe.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_76bbe.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_mtimespec'
+   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_76bbe.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_76bbe/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_784fe/fast && make  -f CMakeFiles/cmTC_784fe.dir/build.make CMakeFiles/cmTC_784fe.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_784fe.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIME_N  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_784fe.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_mtime_n'
+   (void)sizeof(((struct stat *)0)->st_mtime_n);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_784fe.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_784fe/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_339cf/fast && make  -f CMakeFiles/cmTC_339cf.dir/build.make CMakeFiles/cmTC_339cf.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_339cf.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_UMTIME  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_339cf.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_umtime'
+   (void)sizeof(((struct stat *)0)->st_umtime);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_339cf.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_339cf/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7f56a/fast && make  -f CMakeFiles/cmTC_7f56a.dir/build.make CMakeFiles/cmTC_7f56a.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f56a.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIME_USEC  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_7f56a.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_mtime_usec'
+   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_7f56a.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7f56a/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f1542/fast && make  -f CMakeFiles/cmTC_f1542.dir/build.make CMakeFiles/cmTC_f1542.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1542.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_FLAGS  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_f1542.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:34: error: 'struct stat' has no member named 'st_flags'
+   (void)sizeof(((struct stat *)0)->st_flags);
+                                  ^
+make[1]: *** [CMakeFiles/cmTC_f1542.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_f1542/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c1542/fast && make  -f CMakeFiles/cmTC_c1542.dir/build.make CMakeFiles/cmTC_c1542.dir/build
+make[1]: Entering directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1542.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STATVFS_F_IOSIZE  -w     -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=600 -std=gnu99 -o CMakeFiles/cmTC_c1542.dir/src.c.o -c /root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp/src.c:7:37: error: 'struct statvfs' has no member named 'f_iosize'
+   (void)sizeof(((struct statvfs *)0)->f_iosize);
+                                     ^
+make[1]: *** [CMakeFiles/cmTC_c1542.dir/src.c.o] Error 1
+make[1]: Leaving directory `/root/pakages/copy/cryptdb/cmake-3.24.2/CMakeFiles/CMakeTmp'
+make: *** [cmTC_c1542/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Looking for a Fortran compiler failed with the following output:
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/root/pakages/copy/cryptdb/cmake-3.24.2/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/root/pakages/copy/cryptdb/cmake-3.24.2/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+
