@@ -1,0 +1,25 @@
+OBJDIRS	+= udf
+pg_server:=/opt/pgsql/include/server
+all:	udf
+
+udf:	$(OBJDIR)/udf/pg_udf.so
+
+$(OBJDIR)/udf/pg_udf.so: $(OBJDIR)/udf/pg_udf.o \
+		      $(OBJDIR)/libedbcrypto.a \
+		      $(OBJDIR)/libedbutil.a \
+		      $(OBJDIR)/../udf/pg_udf.cc
+	$(CXX) -shared -o $@ $< $(LDFLAGS) \
+	       $(OBJDIR)/libedbcrypto.a \
+	       $(OBJDIR)/libedbutil.a \
+	       -lcrypto -lntl -lgmp
+
+install: install_udf
+clean: clean_udf
+pg_libdir:=/opt/pgsql/lib
+.PHONY: install_udf
+clean_udf: 
+	rm -rf $(pg_libdir)/pg_udf.so
+install_udf:
+	cp $(OBJDIR)/udf/pg_udf.so $(pg_libdir)
+    
+# vim: set noexpandtab:
