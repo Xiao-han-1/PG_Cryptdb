@@ -64,7 +64,7 @@ public:
 
     static std::string parenList() {
         std::vector<std::string> texts =
-            *TypeText<_type>::instance->theTexts;
+            TypeText<_type>::instance->theTexts;
         std::stringstream s;
         s << "(";
         for (unsigned int i = 0; i < texts.size(); ++i) {

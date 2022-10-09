@@ -170,4 +170,3 @@ filterList(List_iterator<Type> it, std::function<bool(Type *)> op)
 
     return new_list;
 }
-

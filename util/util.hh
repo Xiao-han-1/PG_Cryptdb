@@ -20,7 +20,7 @@
 #include <sstream>
 #include <algorithm>
 #include <assert.h>
-
+#include <functional>
 #include <sys/time.h>
 
 #include <NTL/ZZ.h>
@@ -32,7 +32,7 @@
 
 #define SVAL2(s) #s
 #define SVAL(s) SVAL2(s)
-
+#define throw(...)
 #if MYSQL_S
 #define TN_I32 "integer"
 #define TN_I64 "bigint unsigned"

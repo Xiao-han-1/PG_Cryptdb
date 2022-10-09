@@ -6,7 +6,7 @@
 #include </usr/include/postgresql/libpq-fe.h>
 #include <parser/Annotation.hh>
 
-#include <mysql.h>
+#include </root/pakages/copy/cryptdb/mysql-src/include/mysql.h>
 #include <sql_base.h>
 
 class embedmysql {

@@ -476,7 +476,7 @@ struct LEX;
 class st_select_lex;
 class st_select_lex_unit;
 
-
+#define protected public
 class st_select_lex_node {
 protected:
   st_select_lex_node *next, **prev,   /* neighbor list */

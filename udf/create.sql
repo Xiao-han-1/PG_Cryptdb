@@ -68,7 +68,8 @@
 
    COMMIT;
  END
-
+CREATE FUNCTION cryptdb_decrypt_int_sem(bigint,cstring,bigint) 
+RETURNS bigint AS '/opt/pgsql/lib/pg_udf.so', 'cryptdb_decrypt_int_sem'  LANGUAGE C STRICT;
 CREATE FUNCTION cryptdb_decrypt_int_sem RETURNS INTEGER SONAME 'edb.so';
 CREATE FUNCTION cryptdb_decrypt_text_sem RETURNS STRING SONAME 'edb.so';
 CREATE FUNCTION cryptdb_decrypt_int_det RETURNS INTEGER SONAME 'edb.so';

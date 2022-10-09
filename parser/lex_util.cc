@@ -183,6 +183,8 @@ isItem_insert_value(const Item &i)
 void
 set_select_lex(LEX *const lex, SELECT_LEX *const select_lex)
 {
+    
+
     lex->select_lex = *select_lex;
     lex->unit.*rob<st_select_lex_node, st_select_lex_node *,
                    &st_select_lex_node::slave>::ptr() =
