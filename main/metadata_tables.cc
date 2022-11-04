@@ -101,13 +101,16 @@ MetaData::initialize(const std::unique_ptr<Connect> &conn,
         return false;
     }
     MetaData::Internal::initPrefix(prefix);
-
+    //  std::string drop_db;
+    //      drop_db =
+    //     " DROP DATABASE  " + DB::embeddedDB() + ";";
+    // RETURN_FALSE_IF_FALSE(e_conn->execute(drop_db));
     // Embedded database.
     const std::string create_db =
         " CREATE DATABASE  " + DB::embeddedDB() + ";";
     RETURN_FALSE_IF_FALSE(e_conn->execute(create_db));
     const std::string use_db =
-        "USE " + DB::embeddedDB() + ";";
+        "\\c " + DB::embeddedDB() + ";";
     RETURN_FALSE_IF_FALSE(e_conn->execute(use_db));
     const std::string create_meta_table =
         " CREATE TABLE IF NOT EXISTS " + Table::metaObject() +
@@ -144,12 +147,12 @@ MetaData::initialize(const std::unique_ptr<Connect> &conn,
     RETURN_FALSE_IF_FALSE(e_conn->execute(create_staleness));
 
     // Remote database.
-    const std::string create_remote_db =
-        " CREATE DATABASE  " + DB::remoteDB() + ";";
-    RETURN_FALSE_IF_FALSE(conn->execute(create_remote_db));
-        const std::string use_re_db =
-        "USE " + DB::remoteDB() + ";";
-    RETURN_FALSE_IF_FALSE(e_conn->execute(use_re_db));
+    // const std::string create_remote_db =
+    //     " CREATE DATABASE  " + DB::remoteDB() + ";";
+    // RETURN_FALSE_IF_FALSE(conn->execute(create_remote_db));
+    //     const std::string use_re_db =
+    //     "USE " + DB::remoteDB() + ";";
+    // RETURN_FALSE_IF_FALSE(e_conn->execute(use_re_db));
     const std::string create_remote_completion =
         " CREATE TABLE IF NOT EXISTS " + Table::remoteQueryCompletion() +
         "   (begin BOOLEAN NOT NULL,"
@@ -157,7 +160,7 @@ MetaData::initialize(const std::unique_ptr<Connect> &conn,
         "    embedded_completion_id INTEGER NOT NULL,"
         "    reissue BOOLEAN NOT NULL,"
         "    id SERIAL PRIMARY KEY);";
-    RETURN_FALSE_IF_FALSE(conn->execute(create_remote_completion));
+    RETURN_FALSE_IF_FALSE(e_conn->execute(create_remote_completion));
 
     initialized = true;
     return true;

@@ -10,7 +10,7 @@
 #include <main/dbobject.hh>
 #include <main/metadata_tables.hh>
 #include <main/macro_util.hh>
-
+#include </usr/include/postgresql/libpq-fe.h>
 std::vector<DBMeta *>
 DBMeta::doFetchChildren(const std::unique_ptr<Connect> &e_conn,
                         std::function<DBMeta *(const std::string &,
@@ -34,12 +34,9 @@ DBMeta::doFetchChildren(const std::unique_ptr<Connect> &e_conn,
     // FIXME: Throw exception.
     assert(e_conn->execute(serials_query, &db_res));
     int  row=PQntuples(db_res->n);
-    std::cout<<PQntuples(db_res->n)<<"\n";
-    std::cout<<PQnfields(db_res->n)<<"\n";
+    // std::cout<<PQntuples(db_res->n)<<"\n";
+    // std::cout<<PQnfields(db_res->n)<<"\n";
     for(int i=0;i<row;i++) {
-    //     unsigned long * const l = mysql_fetch_lengths(db_res->n);
-    //     assert(l != NULL);
-
         const std::string child_serial_object(PQgetvalue(db_res->n,i, 0));
         const std::string child_key(PQgetvalue(db_res->n,i, 1));
         const std::string child_id(PQgetvalue(db_res->n,i, 2));
@@ -437,7 +434,10 @@ bool FieldMeta::hasOnion(onion o) const
 std::unique_ptr<TableMeta>
 TableMeta::deserialize(unsigned int id, const std::string &serial)
 {
+    assert(id != 0);
     const auto vec = unserialize_string(serial);
+    //table 的解序列化有5个项目.
+    assert(5 == vec.size());
 
     const std::string anon_table_name = vec[0];
     const bool hasSensitive = string_to_bool(vec[1]);

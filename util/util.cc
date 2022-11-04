@@ -142,7 +142,7 @@ ZZFromString(const std::string &s)
 // we duplicate this so we can avoid having to do a copy
 #define ALLOC(p) (((long *) (p))[0])
 #define SIZE(p) (((long *) (p))[1])
-#define DATA(p) ((mp_limb_t *) (((long *) (p)) + 2))
+#define DATA(p) ((mp_limb_t *) (((void *) (p)) + 2))
 #define STORAGE(len) ((long)(2*sizeof(long) + (len)*sizeof(mp_limb_t)))
 #define MustAlloc(c, len)  (!(c) || (ALLOC(c) >> 2) < (len))
 
@@ -155,7 +155,7 @@ static void _ntl_gcopy_mp(mp_limb_t* a, long sa, _ntl_gbigint *bb)
    b = *bb;
 
    if (!a || sa == 0) {
-      if (b) SIZE(b) = 0;
+      if (b) SIZE((void*)b) = 0;
    }
    else {
       if (a != b) {
@@ -175,7 +175,7 @@ static void _ntl_gcopy_mp(mp_limb_t* a, long sa, _ntl_gbigint *bb)
          for (i = 0; i < abs_sa; i++)
             bdata[i] = adata[i];
 
-         SIZE(b) = sa;
+         SIZE((void*)b) = sa;
       }
    }
 }
@@ -192,7 +192,7 @@ std::string padForZZ(std::string s) {
 }
 
 std::string StringFromZZFast(const ZZ& x) {
-    long sa = SIZE(x.rep);
+    long sa = SIZE((void*)(x.rep));
     long abs_sa;
     if (sa >= 0)
       abs_sa = sa;

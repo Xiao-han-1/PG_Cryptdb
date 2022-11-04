@@ -27,7 +27,7 @@ throw_c(bool test, const std::string &msg = "crypto fail")
 }
 class fatal : public std::stringstream {
  public:
-    ~fatal() __attribute__((noreturn)) {
+    ~fatal() noexcept(true) {
         std::cerr << str() << std::endl;
         exit(-1);
     }
@@ -35,16 +35,16 @@ class fatal : public std::stringstream {
 
 class cryptdb_err : public std::stringstream {
  public:
-    ~cryptdb_err() __attribute__((noreturn)) {
+    ~cryptdb_err()  noexcept(true){
         std::cerr << str() << std::endl;
-        throw CryptDBError(str());
+       
     }
 };
 
 class thrower : public std::stringstream {
  public:
-    ~thrower() __attribute__((noreturn)) {
-        throw std::runtime_error(str());
+    ~thrower() noexcept(true) {
+        
     }
 };
 

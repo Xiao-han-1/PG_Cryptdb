@@ -48,8 +48,14 @@ class CreateTableHandler : public DDLHandler {
             new_lex->select_lex.table_list =
                 *oneElemListWithTHD<TABLE_LIST>(tbl);
 
+           //这里给出了create的获取. alter_info代码被摘出来了. 代表了要创建的一系列column以及index
             auto it =
                 List_iterator<Create_field>(lex->alter_info.create_list);
+
+	    //对现有的每个field, 如id,name, 都在内部通过createAndRewriteField函数扩展成多个洋葱+salt.
+	    //其中洋葱有多个层, 其通过newCreateField函数, 决定了类型, 而新的field的名字, 就是洋葱的名字传过去的.
+            //扩展以后, 就是新的Create_field类型了, 这了返回的list是被继续传到引用参数里面的, 很奇怪的用法.
+            //key data在这里的作用是, 决定是不是unique, 从而选择和是的洋葱层次.
             new_lex->alter_info.create_list =
                 accumList<Create_field>(it,
                     [&a, &ps, &tm] (List<Create_field> out_list,
@@ -76,6 +82,7 @@ class CreateTableHandler : public DDLHandler {
             // -----------------------------
             //         Update TABLE       
             // -----------------------------
+            //建立了db=>table的关系, 作为delta实现. 然后delta会apply. 这里使用了createDelta
             a.deltas.push_back(std::unique_ptr<Delta>(
                             new CreateDelta(std::move(tm),
                                             a.getDatabaseMeta(db_name),

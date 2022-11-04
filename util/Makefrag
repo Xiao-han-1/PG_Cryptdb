@@ -1,4 +1,4 @@
-OBJDIRS += util -D_GLIBCXX_USE_CXX11_ABI=0
+OBJDIRS += util 
 UTILSRC := onions.cc cryptdb_log.cc ctr.cc util.cc version.cc
 
 all:    $(OBJDIR)/libedbutil.so $(OBJDIR)/libedbutil.a

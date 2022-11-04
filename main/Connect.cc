@@ -18,7 +18,7 @@
 #include <main/schema.hh>
 #include </usr/include/postgresql/libpq-fe.h>
 using namespace std;
-#include<string>
+
 Connect::Connect(const std::string &server, const std::string &user,
                  const std::string &passwd, uint port)
     : conn(nullptr), close_on_destroy(true)
@@ -46,7 +46,7 @@ Connect::do_connect(const std::string &server, const std::string &user,
     // assert(0 == mysql_library_init(sizeof(dummy_argv)/sizeof(*dummy_argv),
     //                                const_cast<char**>(dummy_argv), 0));
       const char *conninfo;
-     conninfo = "host=127.0.0.1 port=5432 dbname=cryptdb_test user=postgres";
+     conninfo = "host=127.0.0.1 port=5432 dbname=cryptdb user=postgres";
      conn = PQconnectdb(conninfo);
        if (PQstatus(conn) != CONNECTION_OK)
        {

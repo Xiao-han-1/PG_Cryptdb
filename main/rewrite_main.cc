@@ -23,7 +23,7 @@
 #include <main/ddl_handler.hh>
 #include <main/metadata_tables.hh>
 #include <main/macro_util.hh>
-
+#include </usr/include/postgresql/libpq-fe.h>
 #include "field.h"
 
 extern CItemTypesDir itemTypes;

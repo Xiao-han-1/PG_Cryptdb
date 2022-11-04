@@ -18,8 +18,10 @@ montgomery::from_mont(const ZZ &a)
     return MulMod(a, _rinv, _m);
 }
 
+// we duplicate this so we can avoid having to do a copy
+#define ALLOC(p) (((long *) (p))[0])
 #define SIZE(p) (((long *) (p))[1])
-#define DATA(p) ((mp_limb_t *) (((long *) (p)) + 2))
+#define DATA(p) ((mp_limb_t *) (((void *) (p)) + 2))
 
 ZZ
 montgomery::mmul(const ZZ &a, const ZZ &b)

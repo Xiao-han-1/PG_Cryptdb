@@ -30,7 +30,7 @@
 #include <util/errstream.hh>
 #include <util/cleanup.hh>
 #include <util/rob.hh>
-
+#include </usr/include/postgresql/libpq-fe.h>
 extern std::string global_crash_point;
 
 void

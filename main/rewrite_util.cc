@@ -342,9 +342,9 @@ bool_to_string(bool b)
 bool
 string_to_bool(const std::string &s)
 {
-    if (s == std::string("t") || s == std::string("1")) {
+    if (s == std::string("TRUE") || s == std::string("1")) {
         return true;
-    } else if (s == std::string("f") || s == std::string("0")) {
+    } else if (s == std::string("FALSE") || s == std::string("0")) {
         return false;
     } else {
         throw "unrecognized string in string_to_bool!";
@@ -655,8 +655,9 @@ lowLevelGetCurrentStaleness(const std::unique_ptr<Connect> &e_conn,
     // const unsigned long *const l = mysql_fetch_lengths(db_res->n);
     // assert(l != NULL);
     std::string flag=std::string(PQgetvalue(db_res->n,0,0));
-    std::cout<<flag<<"\n";
-    return string_to_bool(flag);
+    if(flag == std::string("t") )
+    return true;
+    else return false;
 }
 
 const SchemaInfo &

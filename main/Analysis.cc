@@ -336,8 +336,9 @@ getAllUDFs()
         ss << sr.str();
         ss<<" LANGUAGE C STRICT;";
         udfs.push_back(ss.str());
+        // std::cout<<ss<<std::endl;
     }
-
+    
     return udfs;
 }
 
@@ -345,9 +346,9 @@ static void
 createAll(const std::unique_ptr<Connect> &conn)
 {
     auto udfs = getAllUDFs();
-    // for (auto it : udfs) {
-    //     assert_s(conn->execute(it), it);
-    // }
+    for (auto it : udfs) {
+        assert_s(conn->execute(it), it);
+    }
 }
 
 static void
@@ -442,8 +443,11 @@ bool create_delta_helper(CreateDelta* this_is, const std::unique_ptr<Connect> &e
 
         /*id is 0 for the first time, and after that we can fetch the id from the cache*/
         AssignOnce<unsigned int> old_object_id;
+        std::unique_ptr<DBResult> res;
         if (Delta::BLEEDING_TABLE == table_type){
-            old_object_id = 0;
+        const std::string &query =" select count(*) from "+ table_name + " ;";
+        e_conn->execute(query,&res,false);
+        old_object_id =std::atoi(PQgetvalue(res->n,0,0));
         } else {
             assert(Delta::REGULAR_TABLE == table_type);
             auto const &cached = this_is->get_id_cache().find(&meta_me);
@@ -457,20 +461,13 @@ bool create_delta_helper(CreateDelta* this_is, const std::unique_ptr<Connect> &e
             " '" + esc_child_serial + "',"
             " '" + esc_serial_key + "',"
             " " + std::to_string(parent_id) + ","
-            " " + std::to_string(old_object_id.get()) + ") returning id;";
-        std::unique_ptr<DBResult> res;
-        e_conn->execute(query,&res,false);
-        int k_id;
-        if(PQnfields(res->n)==0&&PQntuples(res->n)==0)
-        {
-            k_id=0;
-        }
-        else 
-        {
-            k_id=std::atoi(PQgetvalue(res->n,0,0));
-        }
+            " " + std::to_string(old_object_id.get()) + ") ;";  
+        e_conn->execute(query,false);
+        const std::string &query1 =" select count(*) from "+ table_name + " ;";
+        e_conn->execute(query1,&res,false);
+        const unsigned int object_id =std::atoi(PQgetvalue(res->n,0,0));
+        
         //this is the id of meta_me, which should be the parent_id for the next layer.
-        const unsigned int object_id = k_id;
 
         /*we first insert into bleeding_table {meta_me,last_insert_id}*/
         if (Delta::BLEEDING_TABLE == table_type) {
@@ -813,7 +810,7 @@ void
 DeltaOutput::beforeQuery(const std::unique_ptr<Connect> &conn,
                          const std::unique_ptr<Connect> &e_conn)
 {
-    e_conn->execute("BEGIN TRANSACTION;");
+    e_conn->execute("BEGIN;");
 
     // We must save the current default database because recovery
     // may be happening after a restart in which case such state
@@ -822,7 +819,7 @@ DeltaOutput::beforeQuery(const std::unique_ptr<Connect> &conn,
     const std::string &q_completion =
         " INSERT INTO " + MetaData::Table::embeddedQueryCompletion() +
         "   (begin, complete, original_query, default_db, aborted, type)"
-        "   VALUES (TRUE,  TRUE,"
+        "   VALUES (TRUE,  FALSE,"
         "    '" + escapeString(conn, this->original_query) + "',"
         "    'embedded_db',  FALSE,"
         "    '" + TypeText<CompletionType>::toText(completion_type)

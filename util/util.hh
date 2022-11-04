@@ -8,7 +8,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string>
 #include <string.h>
 #include <list>
 #include <map>

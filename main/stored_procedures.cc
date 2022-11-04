@@ -104,7 +104,7 @@ getStoredProcedures()
             // if not, we will want to reissue the original query
         "   IF old_transaction_id IS NULL THEN\n"
         "       SET b_reissue = TRUE;\n"
-        "   ELSE\n"
+        "   ELSE\n" 
         "       SET b_reissue = FALSE;\n"
         "   END IF;\n\n"
 
