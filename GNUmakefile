@@ -6,7 +6,7 @@ AR	 := ar
 CXXFLAGS := -shared -g -O0 -fno-strict-aliasing -fno-rtti -fwrapv -fPIC \
 	    -Wall  -Wpointer-arith -Wendif-labels -Wformat=2  \
 	    -Wextra -Wmissing-noreturn -Wwrite-strings -Wno-unused-parameter \
-	    -Wno-deprecated  -Wno-error=register\
+	    -Wno-deprecated  \
 	    -Wmissing-declarations -Woverloaded-virtual  \
 	    -Wunreachable-code -D_GNU_SOURCE -std=c++17 -I$(TOP)
 LDFLAGS  := -L$(TOP)/$(OBJDIR) -Wl,--no-undefined
@@ -19,24 +19,28 @@ ifeq ($(RPATH),1)
 LDRPATH	 := -Wl,-rpath=$(TOP)/$(OBJDIR) -Wl,-rpath=$(TOP)
 endif
 
-PGHOME:=/opt/pgsql
+PGHOME:=/usr/include/postgresql 
 PGINC:=/opt/pgsql/include
 PGSRC:=/root/pakages/postgresql-10.0/src
 SEALSRC:=/root/pakages/copy/cryptdb/SEAL/native/src
-SEINCLUDE:=/usr/local/include/SEAL-4.0/seal
+SEINCLUDE:=/usr/local/include/SEAL-4.0
 SQLINC:=/usr/include/mysql
 SQLLOC:=/root/pakages/copy/cryptdb/mysql-src/include
-CXXFLAGS += -I$(PGSRC)/include \
-         -I$(PGINC)/server \
-		 -I$(PGINC)/bin \
+NTLIN:=/root/pakages/copy/cryptdb/ntl-6.2.1
+CXXFLAGS += -I$(SEINCLUDE) \
+        -I$(PGHOME) \
+        -I$(PGSRC)/include \
+        -I$(PGINC)/server \
+		-I$(PGINC)/bin \
+        -I$(NTLIN)/include \
         -I$(MYBUILD)/include \
 	    -I$(MYSRC)/include \
 	    -I$(MYSRC)/sql \
 	    -I$(MYSRC)/regex \
 	    -I$(MYBUILD)/sql \
-	    -DHAVE_CONFIG_H -DMYSQL_SERVER -DEMBEDDED_LIBRARY -DDBUG_OFF -fpermissive -Wno-error=terminate \
+	    -DHAVE_CONFIG_H -DMYSQL_SERVER -DEMBEDDED_LIBRARY -DDBUG_OFF -fpermissive \
 	    -DMYSQL_BUILD_DIR=\"$(MYBUILD)\"
-LDFLAGS	 += -lpthread -lrt -ldl -lcrypt -lpq 	-lreadline -fpermissive -Wno-error=terminate 
+LDFLAGS	 += -lpthread -lrt -ldl -lcrypt -lpq 	-lreadline -L /opt/pgsql/lib 
 ## To be populated by Makefrag files
 CPPFLAGS += -I /usr/include/postgresql 
 LDFLAGS += -L /opt/pgsql/lib
@@ -81,6 +85,7 @@ $(OBJDIR)/%.o: $(OBJDIR)/%.cc
 	$(CXX) -MD $(CXXFLAGS) -c $< -o $@
 
 include crypto/Makefrag
+# include Crypto-ckks/Makefile
 include parser/Makefrag
 include main/Makefrag
 # include test/Makefrag
