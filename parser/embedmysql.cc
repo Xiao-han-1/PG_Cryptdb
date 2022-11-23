@@ -114,7 +114,7 @@ cloneItemInOrder(ORDER * o) {
     o->item = tmp;
 }
 */
-query_parse::query_parse(const std::string &db, const std::string &q)
+void sql_conn()
 {
     MYSQL* conn;
     const char *dummy_argv[] = {
@@ -134,7 +134,12 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         mysql_close(conn);
         fatal() << "mysql_real_connect: " << mysql_error(conn);
     }
-
+    return ;
+}
+query_parse::query_parse(const std::string &db, const std::string &q)
+{
+    MYSQL* conn;
+    sql_conn();
      assert(create_embedded_thd(0));
     t = current_thd;
     assert(t != NULL);

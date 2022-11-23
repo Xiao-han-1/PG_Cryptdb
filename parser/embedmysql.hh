@@ -24,7 +24,7 @@ class mysql_thrower : public std::stringstream {
  public:
     ~mysql_thrower() __attribute__((noreturn));
 };
-
+void sql_conn();
 class query_parse {
  public:
     query_parse(const std::string &db, const std::string &q);

@@ -17,6 +17,7 @@
 #include <main/macro_util.hh>
 #include <util/cryptdb_log.hh>
 #include <main/schema.hh>
+#include <parser/embedmysql.hh>
 #include </usr/include/postgresql/libpq-fe.h>
 using namespace std;
 
@@ -344,7 +345,7 @@ DBResult::unpack()
     if (nullptr == n) {
         return ResType();
     }
-
+    sql_conn();
     const size_t rows = static_cast<size_t>(PQntuples(n));
     if (0 == rows) {
         return ResType();
@@ -354,7 +355,7 @@ DBResult::unpack()
 
     ResType res;
 
-    for (int j = 0;; j++) {
+    for (int j = 0;j<cols; j++) {
         // MYSQL_FIELD *const field = mysql_fetch_field(n);
         // if (!field) {
         //     break;
@@ -363,7 +364,7 @@ DBResult::unpack()
         res.types.push_back(enum_type(PQftype(n,j)));
     }
 
-    for (int index = 0;; index++) {
+    for (int index = 0;index<rows; index++) {
         // MYSQL_ROW row = mysql_fetch_row(n);
         // if (!row) {
         //     break;
