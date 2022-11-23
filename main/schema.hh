@@ -237,4 +237,6 @@ private:
 
 bool
 IsMySQLTypeNumeric(enum_field_types t);
+bool
+IsMySQLTypeNumerics(enum_pg_types t);
 

@@ -24,10 +24,10 @@ class DBResult {
  public:
     ~DBResult();
     DBResult_native *n;
-
+    enum_pg_types enum_type(int id);
     //returns data from this db result
     ResType unpack();
-
+    ResType new_unpack();
     static DBResult *wrap(DBResult_native *);
 };
 

@@ -1224,13 +1224,60 @@ noRewrite(const LEX &lex) {
 
     return false;
 }
-
 static std::string
 lex_to_query(LEX *const lex)
 {
-    std::ostringstream o;
+    std::string tran,p;
+    std::stringstream o,q;
     o << *lex;
-    return o.str();
+    o<<" flag";
+    p=o.str();
+    
+    std::cout<<p<<"\n";
+	while(o)
+	{
+        o>>tran;
+
+      if(tran.compare("BIGINT(8)")==0) q<<"bigint ";
+      else if(tran.compare("flag")==0) break;
+      else if((tran.find('`')!=std::string::npos)) 
+      {
+       while(tran.find('`')!= std::string::npos) 
+        {
+          int pos=tran.find('`');
+            tran.erase(pos, 1);
+        }
+        int index,len;
+        std::string tra="table";
+        len=tran.length();
+        index=tran.find(tra);
+        tra=tran.substr(index);
+        q<<tra<<" ";
+        std::cout<<tra<<"\n";
+      }
+      else if(tran.compare("`cryptdb_test`")==0) q<<"";
+      else if(tran.compare("BIGINT(8),")==0) q<<"bigint,";
+      else if(tran.compare("BIGINT(8))")==0) q<<"bigint)";
+      else if(tran.compare("unsigned")==0) q<<"";
+      else if(tran.compare("unsigned,")==0) q<<", ";
+      else if(tran.compare("unsigned)")==0) q<<") ";
+      else if(tran.compare("VARBINARY(32),")==0) q<<"text,";
+      else if(tran.compare("VARBINARY(32)")==0) q<<"text ";
+      else if(tran.compare("VARBINARY(32))")==0) q<<"text)";
+      else if(tran.compare("not")==0) q<<" ";
+      else if(tran.compare("null,")==0) q<<", ";
+      else if(tran.compare("null)")==0) q<<") ";
+      else if(tran.compare("VARBINARY(256),")==0) q<<"text,";
+      else if(tran.compare("VARBINARY(256)")==0) q<<"text ";
+      else if(tran.compare("VARBINARY(256))")==0) q<<"text)";
+      else if(tran.compare("ENGINE=InnoDB")==0) q<<"";
+      else q<<tran<<" ";
+      std::cout<<tran<<"\n"; 
+      }
+      q<<";";
+    p=q.str();
+    std::cout<<p<<"\n"; 
+    return p;
 }
 
 const bool Rewriter::translator_dummy = buildTypeTextTranslatorHack();
@@ -1252,9 +1299,16 @@ Rewriter::dispatchOnLex(Analysis &a, const ProxyState &ps,
         FAIL_TextMessageError("Bad Query: [" + query + "]\t"
                               "Error Data: " + e.what());
     }
-    LEX *const lex = p->lex();
-
+     LEX *const lex = p->lex(); 
+    std::stringstream b;
+            b<<*lex;
+        std::string str;
+        str=b.str();
+        std::cout<<str<<"\n";
     LOG(cdb_v) << "pre-analyze " << *lex;
+    // std::string old_query=lex_to_query(lex);
+    // std::cout<<old_query<<"\n";
+    // LOG(cdb_v) << "pre-analyze " << *lex;
 
     // optimization: do not process queries that we will not rewrite
     if (noRewrite(*lex)) {
@@ -1430,7 +1484,14 @@ std::string ReturnMeta::stringify() {
     }
     return res.str();
 }
-
+std::string StrFromvar(const uint64_t val)
+{
+     std::stringstream P;
+     P<<val;
+     std::string re;
+     P>>re;
+     return re;
+}
 ResType
 Rewriter::decryptResults(const ResType &dbres, const ReturnMeta &rmeta)
 {
@@ -1533,6 +1594,20 @@ executeQuery(const ProxyState &ps, const std::string &q,
     // ----------------------------------
     //       Post Query Processing
     // ----------------------------------
+    // PGresult* n=dbres->n;
+    //  const int rows = static_cast<size_t>(PQntuples(n));
+    // const int cols = PQnfields(n);
+
+    // for (int j = 0;j<cols; j++) {
+    //     // MYSQL_FIELD *const field = mysql_fetch_field(n);
+    //     // if (!field) {
+    //     //     break;
+    //     // }
+    //     std::cout<<PQfname(n,j)<<"\n";
+    //     std::cout<<PQgetvalue(n,0,j)<<"\n";
+    //     std::cout<<DBResult::enum_type(PQftype(n,j))<<"\n";
+    // }
+
     const ResType &res =
         dbres ? ResType(dbres->unpack()) : mysql_noop_res(ps);
     assert(res.success());

@@ -244,7 +244,7 @@ init_onions_layout(const AES_KEY *const m_key,
         const std::string onion_name = om->getAnonOnionName();
         fm->addChild(OnionMetaKey(o), std::move(om));
 
-        LOG(cdb_v) << "adding onion layer " << onion_name
+        std::cout << "adding onion layer " << onion_name
                    << " for " << fm->fname;
 
         //set outer layer
@@ -532,8 +532,6 @@ DatabaseMeta::serialize(const DBObject &parent) const
 bool
 IsMySQLTypeNumeric(enum_field_types t) {
     switch (t) {
-        case MYSQL_TYPE_DECIMAL:
-        case MYSQL_TYPE_TINY:
         case MYSQL_TYPE_SHORT:
         case MYSQL_TYPE_LONG:
         case MYSQL_TYPE_FLOAT:
@@ -541,6 +539,15 @@ IsMySQLTypeNumeric(enum_field_types t) {
         case MYSQL_TYPE_LONGLONG:
         case MYSQL_TYPE_INT24:
         case MYSQL_TYPE_NEWDECIMAL:
+            return true;
+        default: return false;
+    }
+}
+bool
+IsMySQLTypeNumerics(enum_pg_types t) {
+    switch (t) {
+        case BIGINT:
+
             return true;
         default: return false;
     }

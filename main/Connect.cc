@@ -13,6 +13,7 @@
 #include <memory>
 #include<iostream>
 #include <main/Connect.hh>
+#include <parser/sql_utils.hh>
 #include <main/macro_util.hh>
 #include <util/cryptdb_log.hh>
 #include <main/schema.hh>
@@ -210,23 +211,64 @@ DBResult::~DBResult()
 {
     PQclear(n);
 }
-
+static new_Item  
+getItems(char *const context, enum_pg_types type, uint len)
+{
+    struct new_Item  itema={.context=context,.type=type,.len=len};
+    return itema;
+}
+   
 static Item *
-getItem(char *const content, enum_field_types type, uint len)
+getItem(char *const content, enum_pg_types type, uint len)
 {
     if (content == NULL) {
         return new Item_null();
     }
     const std::string content_str = std::string(content, len);
-    if (IsMySQLTypeNumeric(type)) {
+    if (IsMySQLTypeNumerics(type)) {
         const ulonglong val = valFromStr(content_str);
         return new Item_int(val);
     } else {
-        return new Item_string(make_thd_string(content_str), len,
+        return new (current_thd->mem_root) Item_string(make_thd_string(content_str), len,
                                &my_charset_bin);
     }
 }
+ResType trans_re(new_ResType &dres)
+{
+    const unsigned int rows = dres.rows.size();
+    LOG(cdb_v) << "rows in result " << rows << "\n";
+    const unsigned int cols = dres.names.size();
 
+    ResType dbres;
+    for(int i=0;i<rows;i++)
+    {
+        dbres.names.push_back(dres.names[i]);
+        dbres.types.push_back(dres.types[i]);
+    }
+    for(int i=0;i<rows;i++)
+    { 
+        std::vector<std::shared_ptr<Item>> resows;
+        for(int j=0;j<cols;j++)
+        {
+            if(IsMySQLTypeNumerics(dres.types[i]))
+            {
+               const ulonglong p=valFromStr(dres.rows[i][j].context);
+               Item* re=new (current_thd->mem_root)Item_int(static_cast<ulonglong>(p));
+               resows.push_back(std::shared_ptr<Item>(re));
+            }
+            else 
+            {
+                std::string dec=dres.rows[i][j].context;
+                 Item* re= new (current_thd->mem_root) Item_string(make_thd_string(dec),
+                                                   dec.length(),
+                                                   &my_charset_bin);
+                 resows.push_back(std::shared_ptr<Item>(re));
+            }
+        }
+      dbres.rows.push_back(resows);
+    }
+    return dbres;
+}
 // > returns the data in the last server response
 // > TODO: to optimize return pointer to avoid overcopying large
 //   result sets?
@@ -234,6 +276,68 @@ getItem(char *const content, enum_field_types type, uint len)
 //   objects that it owns.
 //   > ie, We must be able to delete 'this' without mangling the 'ResType'
 //     returned from this->unpack(...).
+
+enum_pg_types DBResult::enum_type(int id)
+{
+    switch (id)
+    {
+    case 20:return BIGINT;
+        /* code */
+    case 25:return TEXT;
+    
+    default:
+        return ERROR;
+    }
+}
+ResType
+DBResult::new_unpack()
+{
+    if (nullptr == n) {
+        return ResType();
+    }
+
+    const size_t rows = static_cast<size_t>(PQntuples(n));
+    if (0 == rows) {
+        return ResType();
+    }
+
+    const int cols = PQnfields(n);
+
+    new_ResType res;
+    
+    for (int j = 0;j<cols; j++) {
+        // MYSQL_FIELD *const field = mysql_fetch_field(n);
+        // if (!field) {
+        //     break;
+        // }
+        res.names.push_back(PQfname(n,j));
+        std::cout<<PQfname(n,j)<<"\n";
+        std::cout<<PQftype(n,j)<<"\n";
+        enum_pg_types ty=enum_type(PQftype(n,j));
+        res.types.push_back(ty);
+    }
+
+    for (size_t index = 0;index<rows; index++) {
+        // MYSQL_ROW row = mysql_fetch_row(n);
+        // if (!row) {
+        //     break;
+        // }
+        // unsigned long *const lengths = mysql_fetch_lengths(n);
+
+        std::vector<new_Item> resrow;
+       
+        for (int j = 0; j < cols; j++) {
+            std::cout<<PQgetvalue(n,index,j)<<"\n";
+            new_Item  itema = getItems(PQgetvalue(n,index,j),res.types[j], PQgetlength(n,index,j));
+            resrow.push_back(itema);
+        }
+
+        res.rows.push_back(resrow);
+    }
+    const ResType &dbres =ResType(trans_re(res));
+
+    return dbres;
+}
 ResType
 DBResult::unpack()
 {
@@ -256,7 +360,7 @@ DBResult::unpack()
         //     break;
         // }
         res.names.push_back(PQfname(n,j));
-        res.types.push_back((enum_field_types)PQftype(n,j));
+        res.types.push_back(enum_type(PQftype(n,j)));
     }
 
     for (int index = 0;; index++) {

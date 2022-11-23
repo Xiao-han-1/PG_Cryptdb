@@ -135,10 +135,10 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         fatal() << "mysql_real_connect: " << mysql_error(conn);
     }
 
-    assert(create_embedded_thd(0));
+     assert(create_embedded_thd(0));
     t = current_thd;
     assert(t != NULL);
-    // assert(__sync_bool_compare_and_swap(&embed_active, true, false));
+
     //if first word of query is CRYPTDB, we can't use the embedded db
     //  set annotation to true and return
 
@@ -168,7 +168,11 @@ query_parse::query_parse(const std::string &db, const std::string &q)
             mysql_thrower() << "parse_sql";
 
         LEX *lex = t->lex;
-
+        std::stringstream a;
+        a<<*lex;
+        std::string p;
+        p=a.str();
+        std::cout<<p<<"\n";
         switch (lex->sql_command) {
         case SQLCOM_SHOW_DATABASES:
         case SQLCOM_SHOW_TABLES:
@@ -234,8 +238,8 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         if (t->fill_derived_tables())
             mysql_thrower() << "fill_derived_tables";
 
-        if (open_normal_and_derived_tables(t, lex->query_tables, 0))
-            mysql_thrower() << "open_normal_and_derived_tables";
+        // if (open_normal_and_derived_tables(t, lex->query_tables, 0))
+        //     mysql_thrower() << "open_normal_and_derived_tables";
 
         if (lex->sql_command == SQLCOM_SELECT) {
             if (!lex->select_lex.master_unit()->is_union() &&
@@ -243,19 +247,22 @@ query_parse::query_parse(const std::string &db, const std::string &q)
             {
                 JOIN *j = new JOIN(t, lex->select_lex.item_list,
                                    lex->select_lex.options, 0);
-                if (j->prepare(&lex->select_lex.ref_pointer_array,
-                               lex->select_lex.table_list.first,
-                               lex->select_lex.with_wild,
-                               lex->select_lex.where,
-                               lex->select_lex.order_list.elements
-                                   + lex->select_lex.group_list.elements,
-                               lex->select_lex.order_list.first,
-                               lex->select_lex.group_list.first,
-                               lex->select_lex.having,
-                               lex->proc_list.first,
-                               &lex->select_lex,
-                               &lex->unit))
-                    mysql_thrower() << "JOIN::prepare";
+                std::cout<<lex->select_lex.ref_pointer_array<<"\n";
+                std::cout<<lex->select_lex<<"\n";
+                std::cout<<lex->unit<<"\n";
+                // if (j->prepare(&lex->select_lex.ref_pointer_array,
+                //                lex->select_lex.table_list.first,
+                //                lex->select_lex.with_wild,
+                //                lex->select_lex.where,
+                //                lex->select_lex.order_list.elements
+                //                    + lex->select_lex.group_list.elements,
+                //                lex->select_lex.order_list.first,
+                //                lex->select_lex.group_list.first,
+                //                lex->select_lex.having,
+                //                lex->proc_list.first,
+                //                &lex->select_lex,
+                //                &lex->unit))
+                //     mysql_thrower() << "JOIN::prepare";
             } else {
                 thrower() << "skip unions for now (union=" << lex->select_lex.master_unit()->is_union()
                           << ", fake_select_lex=" << lex->select_lex.master_unit()->fake_select_lex << ")";
@@ -285,15 +292,19 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         } else if (lex->sql_command == SQLCOM_INSERT) {
             List_iterator_fast<List_item> its(lex->many_values);
             List_item *values = its++;
-
-            if (mysql_prepare_insert(t, lex->query_tables, lex->query_tables->table,
-                                     lex->field_list, values,
-                                     lex->update_list, lex->value_list,
-                                     lex->duplicates,
-                                     &lex->select_lex.where,
-                                     /* select_insert */ 0,
-                                     0, 0))
-                mysql_thrower() << "mysql_prepare_insert";
+            std::stringstream b;
+            b<<*lex;
+        std::string p;
+        p=b.str();
+        std::cout<<p<<"\n";
+            // mysql_prepare_insert(t, lex->query_tables, lex->query_tables->table,
+            //                          lex->field_list, values,
+            //                          lex->update_list, lex->value_list,
+            //                          lex->duplicates,
+            //                          &lex->select_lex.where,
+            //                          /* select_insert */ 0,
+            //                          0, 0);
+                
 
             for (;;) {
                 values = its++;
@@ -328,7 +339,5 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         cleanup();
         throw;
     }
-    mysql_close(conn);
-    mysql_server_end();
 }
 
