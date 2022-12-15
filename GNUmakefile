@@ -25,7 +25,7 @@ PGSRC:=/root/pakages/postgresql-10.10/src/include
 SEALSRC:=/root/pakages/copy/cryptdb/SEAL/native/src
 OpenFHE_INCLUDE:=/usr/local/include/openfhe
 SQLINC:=/usr/include/mysql
-SQLLOC:=/root/pakages/copy/cryptdb/mysql-src/include
+SQLLOC:=/root/pakages/copy/mysql-src/include
 NTLIN:=/root/pakages/copy/cryptdb/ntl-6.2.1
 CXXFLAGS += -I$(PGHOME) \
         -I$(OpenFHE_INCLUDE) \

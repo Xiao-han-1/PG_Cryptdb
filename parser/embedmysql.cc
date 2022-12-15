@@ -4,12 +4,12 @@
 #include <sys/types.h>
 
 #include <parser/embedmysql.hh>
-#include "/root/pakages/copy/cryptdb/mysql-src/sql/sql_base.h"
-#include </root/pakages/copy/cryptdb/mysql-src/sql/sql_select.h>
-#include </root/pakages/copy/cryptdb/mysql-src/sql/sql_delete.h>
-#include </root/pakages/copy/cryptdb/mysql-src/sql/sql_insert.h>
-#include </root/pakages/copy/cryptdb/mysql-src/sql/sql_update.h>
-#include </root/pakages/copy/cryptdb/mysql-src/sql/sql_parse.h>
+#include "sql_base.h"
+#include <sql_select.h>
+#include <sql_delete.h>
+#include <sql_insert.h>
+#include <sql_update.h>
+#include <sql_parse.h>
 #include <handler.h>
 
 
