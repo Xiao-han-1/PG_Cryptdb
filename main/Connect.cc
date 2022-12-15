@@ -111,7 +111,7 @@ Connect::execute(const std::string &query, std::unique_ptr<DBResult> *res,
                  bool multiple_resultsets)
 {
    
-    std::cout<<query.c_str()<<"\n";
+    // std::cout<<query.c_str()<<"\n";
     if (query.length() == 0) {
         LOG(warn) << "empty query";
         res = nullptr;
@@ -147,8 +147,8 @@ Connect::execute(const std::string &query, std::unique_ptr<DBResult> *res,
             res = nullptr;
         }
     
-    PQexec(conn, "COMMIT;");
-     std::cout<<PQdb(conn)<<"\n";
+    // PQexec(conn, "COMMIT;");
+    //  std::cout<<PQdb(conn)<<"\n";
     return success;
   
 }
@@ -222,15 +222,17 @@ getItems(char *const context, enum_pg_types type, uint len)
 static Item *
 getItem(char *const content, enum_pg_types type, uint len)
 {
+    // std::cout<<len<<"\n";
     if (content == NULL) {
         return new Item_null();
     }
     const std::string content_str = std::string(content, len);
+    // std::cout<<content<<" "<<len<<" "<<content_str<<"\n";
     if (IsMySQLTypeNumerics(type)) {
         const ulonglong val = valFromStr(content_str);
         return new Item_int(val);
     } else {
-        return new (current_thd->mem_root) Item_string(make_thd_string(content_str), len,
+        return new  Item_string(make_thd_string(content_str), len,
                                &my_charset_bin);
     }
 }
@@ -283,8 +285,10 @@ enum_pg_types DBResult::enum_type(int id)
     switch (id)
     {
     case 20:return BIGINT;
+    case 16:return BOOL;
         /* code */
     case 25:return TEXT;
+    case 1700:return decimal;
     
     default:
         return ERROR;
@@ -312,8 +316,8 @@ DBResult::new_unpack()
         //     break;
         // }
         res.names.push_back(PQfname(n,j));
-        std::cout<<PQfname(n,j)<<"\n";
-        std::cout<<PQftype(n,j)<<"\n";
+        // std::cout<<PQfname(n,j)<<"\n";
+        // std::cout<<PQftype(n,j)<<"\n";
         enum_pg_types ty=enum_type(PQftype(n,j));
         res.types.push_back(ty);
     }
@@ -328,7 +332,7 @@ DBResult::new_unpack()
         std::vector<new_Item> resrow;
        
         for (int j = 0; j < cols; j++) {
-            std::cout<<PQgetvalue(n,index,j)<<"\n";
+            // std::cout<<PQgetvalue(n,index,j)<<"\n";
             new_Item  itema = getItems(PQgetvalue(n,index,j),res.types[j], PQgetlength(n,index,j));
             resrow.push_back(itema);
         }
@@ -361,7 +365,10 @@ DBResult::unpack()
         //     break;
         // }
         res.names.push_back(PQfname(n,j));
-        res.types.push_back(enum_type(PQftype(n,j)));
+        //  std::cout<<PQfname(n,j)<<"\n";
+        enum_pg_types ty=enum_type(PQftype(n,j));
+        res.types.push_back(ty);
+        // std::cout<<PQftype(n,j)<<" "<<ty<<"\n";
     }
 
     for (int index = 0;index<rows; index++) {
@@ -375,6 +382,7 @@ DBResult::unpack()
        
         for (int j = 0; j < cols; j++) {
             Item *const item = getItem(PQgetvalue(n,index,j),res.types[j], PQgetlength(n,index,j));
+            // std::cout<<PQgetvalue(n,index,j)<<"\n";
             resrow.push_back(std::shared_ptr<Item>(item));
         }
 

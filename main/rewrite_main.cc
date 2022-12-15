@@ -541,11 +541,11 @@ buildTypeTextTranslator()
     // Onions.
     const std::vector<std::string> onion_strings
     {
-        "oINVALID", "oPLAIN", "oDET", "oOPE", "oAGG", "oSWP"
+        "oINVALID", "oPLAIN", "oDET", "oOPE", "oFHE", "oSWP"
     };
     const std::vector<onion> onions
     {
-        oINVALID, oPLAIN, oDET, oOPE, oAGG, oSWP
+        oINVALID, oPLAIN, oDET, oOPE, oFHE, oSWP
     };
     RETURN_FALSE_IF_FALSE(onion_strings.size() == onions.size());
     translatorHelper<onion>(onion_strings, onions);
@@ -553,13 +553,13 @@ buildTypeTextTranslator()
     // SecLevels.
     const std::vector<std::string> seclevel_strings
     {
-        "RND", "DET", "DETJOIN", "OPE", "HOM", "SEARCH", "PLAINVAL",
+        "RND", "DET", "DETJOIN", "OPE", "HOM", "FHE", "SEARCH", "PLAINVAL",
         "INVALID"
     };
     const std::vector<SECLEVEL> seclevels
     {
         SECLEVEL::RND, SECLEVEL::DET, SECLEVEL::DETJOIN, SECLEVEL::OPE,
-        SECLEVEL::HOM, SECLEVEL::SEARCH, SECLEVEL::PLAINVAL,
+        SECLEVEL::HOM, SECLEVEL::FHE, SECLEVEL::SEARCH, SECLEVEL::PLAINVAL,
         SECLEVEL::INVALID
     };
     RETURN_FALSE_IF_FALSE(seclevel_strings.size() == seclevels.size());
@@ -904,6 +904,18 @@ do_optimize_const_item(T *i, Analysis &a) {
 
     */
 }
+Item *
+decrypt_FHE(Item *const i,
+                    uint64_t IV)
+{
+    assert(!i->is_null());
+
+    Item *dec = i;
+        dec = FHE_decrypt(dec, IV);
+        LOG(cdb_v) << "dec okay";
+
+    return dec;
+}
 
 Item *
 decrypt_item_layers(Item *const i, const FieldMeta *const fm, onion o,
@@ -1224,62 +1236,122 @@ noRewrite(const LEX &lex) {
 
     return false;
 }
+// static std::string
+// old_lex_to_query(LEX *const lex)
+// {
+//     std::string tran,p;
+//     std::stringstream o,q;
+//     o << *lex;
+//     o<<" flag";
+//     p=o.str();
+//     int flag=0;
+//     std::cout<<p<<"\n";
+// 	while(o)
+// 	{
+//         o>>tran;
+
+//       if(tran.compare("BIGINT(8)")==0) q<<"decimal ";
+//       else if(tran.compare("insert")==0) 
+//       {q<<tran<<" ";flag++;}
+//       else if(tran.compare("flag")==0) break;
+//       else if((tran.find('`')!=std::string::npos)&&(flag<=1)) 
+//       {
+//         if(flag) flag++;
+//        while(tran.find('`')!= std::string::npos) 
+//         {
+//           int pos=tran.find('`');
+//             tran.erase(pos, 1);
+//         }
+//         int index,len;
+//         std::string tra="table";
+//         len=tran.length();
+//         if(tran.find(tra)!=std::string::npos)
+//         {
+//             index=tran.find(tra);
+//         tra=tran.substr(index);
+//         q<<tra<<" ";
+//         std::cout<<tra<<"\n";
+//         }
+//         else 
+//         {
+//             q<<tran<<" ";
+//         }
+        
+//       }
+//       else if(tran.compare("`cryptdb_test`")==0) q<<"";
+//       else if(tran.compare("BIGINT(8),")==0) q<<"bigint,";
+//       else if(tran.compare("BIGINT(8))")==0) q<<"bigint)";
+//       else if(tran.compare("unsigned")==0) q<<"";
+//       else if(tran.compare("unsigned,")==0) q<<", ";
+//       else if(tran.compare("unsigned)")==0) q<<") ";
+//       else if(tran.compare("VARBINARY(32),")==0) q<<"text,";
+//       else if(tran.compare("VARBINARY(32)")==0) q<<"text ";
+//       else if(tran.compare("VARBINARY(32))")==0) q<<"text)";
+//       else if(tran.compare("not")==0) q<<" ";
+//       else if(tran.compare("null,")==0) q<<", ";
+//       else if(tran.compare("null)")==0) q<<") ";
+//       else if(tran.compare("VARBINARY(256),")==0) q<<"text,";
+//       else if(tran.compare("VARBINARY(256)")==0) q<<"text ";
+//       else if(tran.compare("VARBINARY(256))")==0) q<<"text)";
+//       else if(tran.compare("ENGINE=InnoDB")==0) q<<"";
+//       else q<<tran<<" ";
+//       std::cout<<tran<<" "<<tran.length()<<"\n"; 
+//       }
+//       q<<";";
+//     p=q.str();
+//     std::cout<<p<<"\n"; 
+//     return p;
+// }
+std::string& replace_all(std::string& str, std::string strold, std::string strvalue)
+{
+	while (true) {
+		std::string::size_type pos(0);
+		if ((pos = str.find(strold)) != std::string::npos) //"string::npos"means find failed
+			str.replace(pos, strold.length(), strvalue);
+		else break;
+	}
+	return str;
+}
+std::string& erase_all(std::string& str, std::string strold)
+{
+	while (true) {
+		std::string::size_type pos(0);
+		if ((pos = str.find(strold)) !=std::string::npos) //"string::npos"means find failed
+			str.erase(pos, strold.length());
+		else break;
+	}
+	return str;
+}
+std::string& tran_find(std::string& str)
+{
+  int pos =str.find("AS");
+  int pos1=str.find("from");
+  if(pos!=std::string::npos&&pos1!=std::string::npos)
+  str.erase(pos,pos1-pos);
+  return str;
+}
 static std::string
 lex_to_query(LEX *const lex)
 {
     std::string tran,p;
-    std::stringstream o,q;
-    o << *lex;
-    o<<" flag";
-    p=o.str();
+    std::stringstream o;
+    o<<*lex;
     
-    std::cout<<p<<"\n";
-	while(o)
-	{
-        o>>tran;
-
-      if(tran.compare("BIGINT(8)")==0) q<<"bigint ";
-      else if(tran.compare("flag")==0) break;
-      else if((tran.find('`')!=std::string::npos)) 
-      {
-       while(tran.find('`')!= std::string::npos) 
-        {
-          int pos=tran.find('`');
-            tran.erase(pos, 1);
-        }
-        int index,len;
-        std::string tra="table";
-        len=tran.length();
-        index=tran.find(tra);
-        tra=tran.substr(index);
-        q<<tra<<" ";
-        std::cout<<tra<<"\n";
-      }
-      else if(tran.compare("`cryptdb_test`")==0) q<<"";
-      else if(tran.compare("BIGINT(8),")==0) q<<"bigint,";
-      else if(tran.compare("BIGINT(8))")==0) q<<"bigint)";
-      else if(tran.compare("unsigned")==0) q<<"";
-      else if(tran.compare("unsigned,")==0) q<<", ";
-      else if(tran.compare("unsigned)")==0) q<<") ";
-      else if(tran.compare("VARBINARY(32),")==0) q<<"text,";
-      else if(tran.compare("VARBINARY(32)")==0) q<<"text ";
-      else if(tran.compare("VARBINARY(32))")==0) q<<"text)";
-      else if(tran.compare("not")==0) q<<" ";
-      else if(tran.compare("null,")==0) q<<", ";
-      else if(tran.compare("null)")==0) q<<") ";
-      else if(tran.compare("VARBINARY(256),")==0) q<<"text,";
-      else if(tran.compare("VARBINARY(256)")==0) q<<"text ";
-      else if(tran.compare("VARBINARY(256))")==0) q<<"text)";
-      else if(tran.compare("ENGINE=InnoDB")==0) q<<"";
-      else q<<tran<<" ";
-      std::cout<<tran<<"\n"; 
-      }
-      q<<";";
-    p=q.str();
-    std::cout<<p<<"\n"; 
-    return p;
+    tran=o.str();
+    tran=tran_find(tran);
+    if(tran.find("insert")==std::string::npos)
+    tran=erase_all(tran,"'");
+    tran=erase_all(tran,"`");
+    tran=erase_all(tran,"cryptdb.");
+    tran=erase_all(tran,"ENGINE=InnoDB");
+    tran=erase_all(tran,"unsigned");
+    tran=erase_all(tran,"not null");
+    tran=replace_all(tran,"BIGINT(8)","decimal");
+    tran=replace_all(tran,"VARBINARY(256)","text");
+    tran=replace_all(tran,"VARBINARY(32)","text");
+    std::cout<<tran<<"\n";
+    return tran;
 }
-
 const bool Rewriter::translator_dummy = buildTypeTextTranslatorHack();
 const std::unique_ptr<SQLDispatcher> Rewriter::dml_dispatcher =
     std::unique_ptr<SQLDispatcher>(buildDMLDispatcher());
@@ -1303,8 +1375,7 @@ Rewriter::dispatchOnLex(Analysis &a, const ProxyState &ps,
     std::stringstream b;
             b<<*lex;
         std::string str;
-        str=b.str();
-        std::cout<<str<<"\n";
+    
     LOG(cdb_v) << "pre-analyze " << *lex;
     // std::string old_query=lex_to_query(lex);
     // std::cout<<old_query<<"\n";
@@ -1492,6 +1563,45 @@ std::string StrFromvar(const uint64_t val)
      P>>re;
      return re;
 }
+bool check_res(const ResType &dbres)
+{
+    const unsigned int rows = dbres.types.size();
+    LOG(cdb_v) << "rows in result " << rows << "\n";
+    const unsigned int cols = dbres.names.size();
+    int flag=0;
+    ResType res;
+     res.rows = std::vector<std::vector<std::shared_ptr<Item> > >(rows);
+    for (unsigned int i = 0; i < rows; i++) {
+        res.rows[i] = std::vector<std::shared_ptr<Item> >(cols);
+    }
+    for(int i=0;i<rows;i++)
+    {
+        if(dbres.types[i]==BOOL)
+        return true;
+        if(dbres.types[i]==TEXT)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                 std::shared_ptr<Item> dec_item(
+                     decrypt_FHE(dbres.rows[i][j].get(), 48564));
+                res.rows[i][j] = dec_item;
+                
+                // std::shared_ptr<Item> dec_it(
+                //     decrypt_FHE(dbres.rows[i][j].get(), 48564));
+                // // dbres.rows[i][j] = dec_item;
+                // std::shared_ptr<Item> trans=dec_it;
+                // dbres[i][j]
+            }
+            flag=1;
+        }
+    }
+    if(flag)
+    {
+        dbres=res;
+        return true;
+    }
+    return false;
+}
 ResType
 Rewriter::decryptResults(const ResType &dbres, const ReturnMeta &rmeta)
 {
@@ -1500,7 +1610,10 @@ Rewriter::decryptResults(const ResType &dbres, const ReturnMeta &rmeta)
     const unsigned int cols = dbres.names.size();
 
     ResType res;
-
+    if(check_res(dbres))
+    {
+        return dbres;
+    }
     // un-anonymize the names
     for (auto it = dbres.names.begin();
         it != dbres.names.end(); it++) {
@@ -1543,7 +1656,6 @@ Rewriter::decryptResults(const ResType &dbres, const ReturnMeta &rmeta)
                     assert_s(!salt_item->null_value, "salt item is null");
                     salt = salt_item->value;
                 }
-
                 std::shared_ptr<Item> dec_item(
                     decrypt_item_layers(dbres.rows[r][c].get(),
                                         fm, rf.getOLK().o, salt));

@@ -1,5 +1,6 @@
 OBJDIRS	+= udf
 pg_server:=/opt/pgsql/include/server
+PG_LIB=/opt/pgsql/lib
 all:	udf
 
 udf:	$(OBJDIR)/udf/pg_udf.so
@@ -11,7 +12,7 @@ $(OBJDIR)/udf/pg_udf.so: $(OBJDIR)/udf/pg_udf.o \
 	$(CXX) -shared -o $@ $< $(LDFLAGS) \
 	       $(OBJDIR)/libedbcrypto.a \
 	       $(OBJDIR)/libedbutil.a \
-	       -lcrypto -lntl -lgmp
+	       -lpq -lcrypto -lntl -lgmp
 
 install: install_udf
 clean: clean_udf

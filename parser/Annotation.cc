@@ -48,6 +48,7 @@ Annotation::Annotation(const string &q) {
     DETenclevel = SECLEVEL::INVALID;
     OPEenclevel = SECLEVEL::INVALID;
     AGGenclevel = SECLEVEL::INVALID;
+    FHEenclevel = SECLEVEL::INVALID;
     SWPenclevel = SECLEVEL::INVALID;
     pred = NULL;
     parse();
@@ -172,6 +173,8 @@ Annotation::hasOnion(onion o) {
         return OPEenclevel;
     case oAGG:
         return AGGenclevel;
+    case oFHE:
+        return FHEenclevel;
     case oSWP:
         return SWPenclevel;
     default:

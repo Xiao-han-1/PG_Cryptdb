@@ -1,0 +1,7 @@
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/ckks.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/edit_cache.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/rebuild_cache.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/list_install_components.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/install.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/install/local.dir
+/root/pakages/copy/cryptdb/Crypto-ckks/build/CMakeFiles/install/strip.dir

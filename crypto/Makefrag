@@ -8,7 +8,7 @@ all:	$(OBJDIR)/libedbcrypto.a $(OBJDIR)/libedbcrypto.so
 
 $(OBJDIR)/libedbcrypto.so: $(CRYPTOOBJ) $(OBJDIR)/libedbutil.so
 	$(CXX) -shared -o $@ $(CRYPTOOBJ) $(LDFLAGS) $(LDRPATH) \
-	       -ledbutil -lcrypto -lntl
+	       -ledbutil -lcrypto -lntl 
 
 $(OBJDIR)/libedbcrypto.a: $(CRYPTOOBJ)
 	$(AR) r $@ $(CRYPTOOBJ)

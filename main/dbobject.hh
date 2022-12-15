@@ -291,7 +291,7 @@ MappedDBMeta<ChildType, KeyType>::fetchChildren(const std::unique_ptr<Connect> &
                 meta_key(AbstractMetaKey::factory<KeyType>(key));
             auto dChild = ChildType::deserialize;
             //childType as a template type ,can present any type ,here,dchild as a funtion present the deserialize
-            std::cout<<serial<<"\n";
+            // std::cout<<serial<<"\n";
             std::unique_ptr<ChildType>
                 new_old_meta(dChild(atoi(id.c_str()), serial));
 

@@ -1,7 +1,6 @@
 #pragma once
-
+#include <Crypto-ckks/ckks.hh>
 #include <algorithm>
-
 #include <util/util.hh>
 #include <crypto/prng.hh>
 #include <crypto/BasicCrypto.hh>
@@ -12,7 +11,6 @@
 #include <crypto/SWPSearch.hh>
 #include </usr/include/postgresql/libpq-fe.h>
 #include <main/dbobject.hh>
-
 #include <sql_select.h>
 #include <sql_delete.h>
 #include <sql_insert.h>
@@ -84,6 +82,35 @@ protected:
 
 private:
      constexpr static const char * type_name = "encLayer";
+};
+Item *
+FHE_decrypt(Item * const ctext, uint64_t IV) ;
+class FHE : public EncLayer {
+public:
+FHE(Create_field * const cf, const std::string &seed_key);
+
+    // serialize and deserialize
+    std::string doSerialize() const {return "seed_key";}
+    FHE(unsigned int id, const std::string &serial);
+
+    SECLEVEL level() const {return SECLEVEL::FHE;}
+    std::string name() const {return "FHE";}
+     Create_field * newCreateField(const Create_field * const cf,
+                                  const std::string &anonname = "")
+        const;
+     Item *encrypt(const Item &p, uint64_t IV) const;
+    Item * decrypt(Item * const c, uint64_t IV) const;
+    protected:
+        std::string const seed_key;
+        static const uint nbits = 1024;
+        FHE_CKKS* sk;
+
+    private:
+        void unwait() const;
+
+        mutable bool waiting=true;
+
+
 };
 
 class HOM : public EncLayer {

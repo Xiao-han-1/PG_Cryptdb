@@ -1,5 +1,4 @@
 OBJDIRS	+= main
-
 CRYPTDB_SRCS := schema.cc Translator.cc Connect.cc \
 		Analysis.cc CryptoHandlers.cc rewrite_util.cc \
 		rewrite_field.cc dispatcher.cc dml_handler.cc \
@@ -19,15 +18,15 @@ $(CRYPTDBPROGOBJS): %: %.o $(OBJDIR)/libedbparser.so \
 			   $(OBJDIR)/libedbutil.so \
 			   $(OBJDIR)/libcryptdb.so \
 			   $(OBJDIR)/libedbcrypto.so
-	$(CXX) $< -o $@ -ledbparser $(LDFLAGS) $(LDRPATH) \
-			-ledbutil -ledbcrypto -lcryptdb
+	$(CXX) $< -o  $@ -ledbparser $(LDFLAGS) $(LDRPATH) \
+			-ledbutil -ledbcrypto -lcryptdb -lckks
 
 $(OBJDIR)/libcryptdb.so: $(CRYPTDB_OBJS) \
 			 $(OBJDIR)/libedbcrypto.so \
 			 $(OBJDIR)/libedbutil.so \
 			 $(OBJDIR)/libedbparser.so 
 	$(CXX) -shared -o $@ $(CRYPTDB_OBJS) $(LDFLAGS) $(LDRPATH) \
-	       -ledbcrypto -ledbutil -ledbparser -lntl -lcrypto
+		        -ledbcrypto -ledbutil -ledbparser -lntl -lcrypto -lckks
 
 install: install_main
 

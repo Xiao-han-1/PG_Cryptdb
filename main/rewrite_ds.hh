@@ -63,6 +63,7 @@ public:
      * decides which encryption scheme to use out of multiple in a set
      */
     OLK chooseOne() const;
+    OLK chooseOne(bool flag) const;
     bool contains(const OLK &olk) const;
     bool hasSecLevel(SECLEVEL level) const;
     EncSet intersect(const EncSet &es2) const;
@@ -112,7 +113,7 @@ const EncSet FULL_EncSet = {
         {oPLAIN, LevelFieldPair(SECLEVEL::RND, NULL)},
         {oDET, LevelFieldPair(SECLEVEL::RND, NULL)},
         {oOPE, LevelFieldPair(SECLEVEL::RND, NULL)},
-        {oAGG, LevelFieldPair(SECLEVEL::HOM, NULL)},
+        {oFHE, LevelFieldPair(SECLEVEL::FHE, NULL)},
         {oSWP, LevelFieldPair(SECLEVEL::SEARCH, NULL)},
     }
 };
@@ -131,7 +132,7 @@ const EncSet FULL_EncSet_Int = {
         {oPLAIN, LevelFieldPair(SECLEVEL::RND, NULL)},
         {oDET, LevelFieldPair(SECLEVEL::RND, NULL)},
         {oOPE, LevelFieldPair(SECLEVEL::RND, NULL)},
-        {oAGG, LevelFieldPair(SECLEVEL::HOM, NULL)},
+        {oFHE, LevelFieldPair(SECLEVEL::FHE, NULL)},
     }
 };
 
@@ -145,7 +146,7 @@ const EncSet Search_EncSet = {
 const EncSet ADD_EncSet = {
     {
         {oPLAIN, LevelFieldPair(SECLEVEL::PLAINVAL, NULL)},
-        {oAGG, LevelFieldPair(SECLEVEL::HOM, NULL)},
+        {oFHE, LevelFieldPair(SECLEVEL::FHE, NULL)},
     }
 };
 
@@ -186,7 +187,7 @@ public:
     const reason r;
     // HACK: Should be const.
     EncSet es_out; // encset that this item can output
-
+    
     RewritePlan(const EncSet &es, reason r) : r(r), es_out(es) {};
     reason getReason() const {return r;}
 

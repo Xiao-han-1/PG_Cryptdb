@@ -4,7 +4,13 @@
 #include <main/dispatcher.hh>
 #include <main/macro_util.hh>
 #include <parser/lex_util.hh>
-
+#include <util/enum_text.hh>
+#include <parser/embedmysql.hh>
+#include <sql_select.h>
+#include <sql_delete.h>
+#include <sql_insert.h>
+#include <sql_update.h>
+#include "field.h"
 extern CItemTypesDir itemTypes;
 
 // Prototypes.
@@ -275,8 +281,333 @@ class DeleteHandler : public DMLHandler {
         return new_lex;
     }
 };
+// bool find_operator(std::string query,int l)
+// {
+//     if(query[l]=='+')
+//     {
+//         return true;
+//     }
+//     else if(query[l]=='-')
+//     {
+//         return true;
+//     }
+//     else if(query[l]=='*')
+//     {
+//         return true;
+//     }
+//     else if(query[l]=='>')
+//     {
+//         return true;
+//     }
+//     else if(query[l]=='<')
+//     {
+//         return true;
+//     }
+//     return false;
+// }
+// void print_item(const st_select_lex select_lex)
+// {
+//      auto item_it =
+//         RiboldMYSQL::constList_iterator<Item>(select_lex.item_list);
+//     for (;;) {
+//         const Item *const item = item_it++;
+//         if (!item)
+//             break;
+//         std::cout<<item->name<<" "<<item->type()<<"\n";
+//     }
+// }
+// void print_list(List<Item> *item_list)
+// {
+//      auto item_it =
+//         RiboldMYSQL::constList_iterator<Item>(*item_list);
+//     for (;;) {
+//         const Item *const item = item_it++;
+//         if (!item)
+//             break;
+//         std::cout<<item->name<<" "<<item->type()<<"\n";
+//     }
+// }
+// bool check_operator(std::string query,char op)
+// {
+//     if(query.find(op)!=std::string::npos)
+//     {
+//         return true;
+//     }
+//     else return false;
+// }
+// Item * StringToItem(std::string str)
+// {
+//     return new (current_thd->mem_root) Item_string(make_thd_string(str),
+//                                                    str.length(),
+//                                                    &my_charset_bin);
+  
+// }
+// std::string& re_erase_all(std::string& str, std::string strold)
+// {
+// 	while (true) {
+// 		std::string::size_type pos(0);
+// 		if ((pos = str.find(strold)) !=std::string::npos) //"string::npos"means find failed
+// 			str.erase(pos, strold.length());
+// 		else break;
+// 	}
+// 	return str;
+// }
+// static void
+// devide_item(const Item* i,  List<Item> *newList)
+// {
+//     List<Item>test;
+//     std::string query= i->name;
+//     if(check_operator(query,'+')||check_operator(query,'-')||check_operator(query,'*'))
+//     {
+//         int pos=0;
+//         for(int l=0;l<query.length();l++)
+//         {
+//             int pos_num;
+//           if(find_operator(query,l)!=false)
+//           {
+//             std::string sub=query.substr(pos,l-pos);
+//             sub=re_erase_all(sub," ");
+//             Item  *it=StringToItem(sub);
+//             newList->push_back(it);
+//             print_list(newList);
+//             sub=query.substr(l,1);
+//             sub=re_erase_all(sub," ");
+//             Item * it1=StringToItem(sub);;
+//             newList->push_back(it1);
+//             print_list(newList);
+//             pos=l+1;
+//           }
+//         }
+//         std::string sub=query.substr(pos,query.length()-pos);
+//         sub=re_erase_all(sub," ");
+//             Item * it=StringToItem(sub);
+//             newList->push_back(it);
+//             print_list(newList);
+//     }
+//     else{
+//             newList->push_back(i); 
+//     }
+//     print_list(newList);
+// }
+// static void
+// new_devide_item(const Item* i,  List<Item> *newList)
+// {
+//     List<Item>test;
+//     std::string query= i->name;
+//     if(check_operator(query,'+')||check_operator(query,'-')||check_operator(query,'*'))
+//     {
+//         int pos=0;
+//         for(int l=0;l<query.length();l++)
+//         {
+//             int pos_num;
+//           if(find_operator(query,l)!=false)
+//           {
+//             std::string sub=query.substr(pos,l-pos);
+//             sub=re_erase_all(sub," ");
+//             Item  *it=i;
+//             it->name=(char*)sub.c_str();
+//             it->name_length=sub.length();
+//             newList->push_back(it);
+//             print_list(newList);
+//             sub=query.substr(l,1);
+//             sub=re_erase_all(sub," ");
+//             Item * it1=i;
+//             it1->name=(char*)sub.c_str();
+//              it1->name_length=sub.length();
+//             newList->push_back(it1);
+//             print_list(newList);
+//             pos=l+1;
+//           }
+//         }
+//         std::string sub=query.substr(pos,query.length()-pos);
+//         sub=re_erase_all(sub," ");
+//             Item * it=i;
+//             it->name=(char*)sub.c_str();
+//              it->name_length=sub.length();
+//             // it->type()=i->type();
+//             newList->push_back(it);
+//             print_list(newList);
+//     }
+//     else{
+//             newList->push_back(i);
+//     }
+//     print_list(newList);
+// }
+// st_select_lex *
+// devide_lex(const st_select_lex &select_lex,Analysis &a)
+// {
+//     // rewrite_filters_lex must be called before rewrite_proj because
+//     // it is responsible for filling Analysis::item_cache which
+//     // rewrite_proj uses.
+//     st_select_lex *const new_select_lex =
+//         rewrite_filters_lex(select_lex, a);
 
+//     auto item_it =
+//         RiboldMYSQL::constList_iterator<Item>(select_lex.item_list);
+
+//     List<Item> newList;
+//     for (;;) {
+//         const Item *const item = item_it++;
+//         if (!item)
+//             break;
+//         LOG(cdb_v) << "rewrite_select_lex " << *item << " with name "
+//                    << item->name << std::endl;
+//         devide_item(item, &newList);
+//     }
+
+//     // TODO(stephentu): investigate whether or not this is a memory leak
+//     new_select_lex->item_list = newList;
+//     auto item_ite =
+//         RiboldMYSQL::constList_iterator<Item>( new_select_lex->item_list);
+//     for (;;) {
+//         const Item *const item = item_it++;
+//         if (!item)
+//             break;
+//         std::cout<<item->name<<" "<<item->type()<<"\n";
+//     }
+//     return new_select_lex;
+// }
+// LEX *const  devide(Analysis &a, LEX *lex)
+//     {
+//         LEX *const new_lex = copyWithTHD(lex);
+//         set_select_lex(new_lex,
+//             devide_lex(new_lex->select_lex,a));
+//         print_item(new_lex->select_lex);
+//         return new_lex;
+//     }
+std::string& Dml_replace_all(std::string& str, std::string strold, std::string strvalue)
+{
+	while (true) {
+		std::string::size_type pos(0);
+		if ((pos = str.find(strold)) != std::string::npos) //"string::npos"means find failed
+			str.replace(pos, strold.length(), strvalue);
+		else break;
+	}
+	return str;
+}
+std::string& Dml_erase_all(std::string& str, std::string strold)
+{
+	while (true) {
+		std::string::size_type pos(0);
+		if ((pos = str.find(strold)) !=std::string::npos) //"string::npos"means find failed
+			str.erase(pos, strold.length());
+		else break;
+	}
+	return str;
+}
+std::string& Dml_tran_find(std::string& str)
+{
+  int pos =str.find("AS");
+  int pos1=str.find("from");
+  if(pos!=std::string::npos&&pos1!=std::string::npos)
+  str.erase(pos,pos1-pos);
+  return str;
+}
+static std::string
+Dml_lex_to_query(LEX *const lex)
+{
+    std::string tran,p;
+    std::stringstream o;
+    o<<*lex;
+    
+    tran=o.str();
+    tran=Dml_tran_find(tran);
+    if(tran.find("insert")==std::string::npos)
+    tran=Dml_erase_all(tran,"'");
+    tran=Dml_erase_all(tran,"`");
+    tran=Dml_erase_all(tran,"cryptdb.");
+    tran=Dml_erase_all(tran,"ENGINE=InnoDB");
+    tran=Dml_erase_all(tran,"unsigned");
+    tran=Dml_erase_all(tran,"not null");
+    tran=Dml_replace_all(tran,"BIGINT(8)","decimal");
+    tran=Dml_replace_all(tran,"VARBINARY(256)","text");
+    tran=Dml_replace_all(tran,"VARBINARY(32)","text");
+    // std::cout<<tran<<"\n";
+    return tran;
+}
+ int check(LEX *const lex)
+    {
+        std::string query=Dml_lex_to_query(lex);
+        int count[2];
+        memset(count, 0, sizeof(count));
+        char* pstr = &query[0];
+	while (*pstr != 0)
+	{
+		if (*pstr == '+' || *pstr == '-'||*pstr == '*' || *pstr == '/') //统计数字个数
+		{
+			count[0]++;
+            count[1]++;
+		}
+        if (*pstr == '>' || *pstr == '<') //统计数字个数
+		{
+            count[1]++;
+		}
+        pstr++; //移动字符指针
+	}
+    if(count[1])
+    return count[1];
+    else return 0;
+
+    }
+ std::string find_table_name( std::string  query)
+    {
+        int pos=query.find("from");
+        std::string res=query.substr(pos+4);
+        res=Dml_erase_all(res," ");
+        res=Dml_erase_all(res,"`");
+        res=Dml_erase_all(res,"cryptdb.");
+        return res;
+    }
+ static std::string
+lexquery(LEX *const lex)
+{
+    std::string tran,p;
+    std::stringstream o;
+    o<<*lex;
+    
+    tran=o.str();
+    tran=Dml_tran_find(tran);
+    if(tran.find("insert")==std::string::npos)
+    // std::cout<<tran<<"\n";
+    return tran;
+}
+ LEX *rewrite_check(Analysis &a, LEX *lex, const ProxyState &ps)
+    {
+        std::string query=lexquery(lex);
+        const std::string &db_name = a.getDatabaseName();
+        std::string table_name=find_table_name(query);
+        const std::string plain_table_name=table_name;
+        int pos=0,pos1=0,pos_flag=query.find('from');
+        while(1)
+        {
+           
+        pos=query.find('`');
+        pos_flag=query.find("from"); 
+        // std::cout<<pos<<" "<<pos_flag<<"\n";
+        if(pos>pos_flag)
+        break;
+        pos1=query.find('`',pos+1);
+		    std::string it=query.substr(pos+1,pos1-pos-1);
+                const std::string field=it;
+                const OnionMeta &om =
+                a.getOnionMeta(db_name, plain_table_name, field,
+                           oFHE);
+                std::string anon_field_name = om.getAnonOnionName();
+                query.replace(pos,pos1-pos+1,anon_field_name);
+        }
+        const std::string anon_name =
+            a.getAnonTableName(db_name, plain_table_name);
+            int pos_ta=query.find("from");
+            query.replace(pos_ta+5,query.length()-pos_ta-5,anon_name);
+        const std::string q=query;
+        std::unique_ptr<query_parse> p;
+        p = std::unique_ptr<query_parse>(
+                new query_parse(db_name, q));
+         LEX *const new_lex = copyWithTHD(p->lex());
+        return new_lex;
+    }
 class SelectHandler : public DMLHandler {
+    int flag=false;
     virtual void gather(Analysis &a, LEX *const lex, const ProxyState &ps)
         const
     {
@@ -299,9 +630,22 @@ class SelectHandler : public DMLHandler {
  LEX *DMLHandler::transformLex(Analysis &analysis, LEX *lex,
                                const ProxyState &ps) const
 {
-    this->gather(analysis, lex, ps);
-
+    if(check(lex))
+    {
+         LEX *const new_lex = copyWithTHD(lex);
+     LEX *const old_lex=rewrite_check(analysis, lex, ps);
+         new_lex->query_tables = old_lex->query_tables;
+       set_select_lex(new_lex,&old_lex->select_lex);
+        return new_lex;
+    }
+    else 
+    {
+      this->gather(analysis, lex, ps);
+   //gather根据schma中的元数据来确定每个item的可能加密方式
     return this->rewrite(analysis, lex, ps);
+    //rewrit根据gather生成的plan进行加密
+    }
+   
 }
 
 // Helpers.
@@ -337,7 +681,7 @@ process_filters_lex(const st_select_lex &select_lex, Analysis &a)
 void
 process_select_lex(const st_select_lex &select_lex, Analysis &a)
 {
-    process_table_list(select_lex.top_join_list, a);
+        process_table_list(select_lex.top_join_list, a);
 
     //select clause
     auto item_it =
@@ -346,7 +690,8 @@ process_select_lex(const st_select_lex &select_lex, Analysis &a)
         const Item *const item = item_it++;
         if (!item)
             break;
-
+        // Item *const new_arg =
+        //         RiboldMYSQL::clone_item(*RiboldMYSQL::get_arg(item, 0));
         gatherAndAddAnalysisRewritePlan(*item, a);
     }
 
@@ -556,6 +901,7 @@ rewrite_proj(const Item &i, const RewritePlan &rp, Analysis &a,
 
     // This line implicity handles field aliasing for at least some cases.
     // As i->name can/will be the alias.
+    
     addToReturn(&a.rmeta, a.pos++, olk.get(), use_salt, i.name);
 
     if (use_salt) {
@@ -569,7 +915,52 @@ rewrite_proj(const Item &i, const RewritePlan &rp, Analysis &a,
         addSaltToReturn(&a.rmeta, a.pos++);
     }
 }
-
+// int 
+// check(const Item* i,Analysis &a,List<Item> *newList)
+// {
+//     std::string query= i->name;
+//     int k=0;
+//     if(check_operator(query,'+')||check_operator(query,'-')||check_operator(query,'*'))
+//     {
+//         int pos=0;
+//         for(int l=0;l<query.length();l++)
+//         {
+//             int pos_num;
+//           if(find_operator(query,l)!=false)
+//           {
+//             std::string sub=query.substr(pos,l-pos);
+//             sub=re_erase_all(sub," ");
+//             Item  *item=i;
+//             item->name=(char*)sub.c_str();
+//             item->name_length=sub.length();
+//              rewrite_proj(*item,
+//                      *constGetAssert(a.rewritePlans, i).get(),
+//                      a, newList);
+//                      k++;
+//             sub=query.substr(l,1);
+//             sub=re_erase_all(sub," ");
+//              item=i;
+//             item->name=(char*)sub.c_str();
+//              item->name_length=sub.length();
+//              rewrite_proj(*item,
+//                      *constGetAssert(a.rewritePlans, i).get(),
+//                      a, newList);
+//                      k++;
+//             pos=l+1;
+//           }
+//         }
+//         std::string sub=query.substr(pos,query.length()-pos);
+//         sub=re_erase_all(sub," ");
+//             Item * item=i;
+//             item->name=(char*)sub.c_str();
+//              item->name_length=sub.length();
+//              rewrite_proj(*item,
+//                      *constGetAssert(a.rewritePlans, i).get(),
+//                      a, newList);
+//                      k++;
+//     }
+//    return k;
+// }
 st_select_lex *
 rewrite_select_lex(const st_select_lex &select_lex, Analysis &a)
 {

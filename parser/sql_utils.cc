@@ -1,5 +1,9 @@
 #include <parser/sql_utils.hh>
 #include <parser/lex_util.hh>
+#include <sql_select.h>
+#include <sql_delete.h>
+#include <sql_insert.h>
+#include <sql_update.h>
 #include <mysql.h>
 
 

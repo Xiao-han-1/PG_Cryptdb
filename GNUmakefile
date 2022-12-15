@@ -3,33 +3,35 @@ TOP	 := $(shell echo $${PWD-`pwd`})
 CXX	 := g++
 AR	 := ar
 ## -g -O0 -> -O2
-CXXFLAGS := -shared -g -O0 -fno-strict-aliasing -fno-rtti -fwrapv -fPIC \
+CXXFLAGS :=-g -O0 -fno-strict-aliasing -fno-rtti -fwrapv -fPIC \
 	    -Wall  -Wpointer-arith -Wendif-labels -Wformat=2  \
 	    -Wextra -Wmissing-noreturn -Wwrite-strings -Wno-unused-parameter \
 	    -Wno-deprecated  \
 	    -Wmissing-declarations -Woverloaded-virtual  \
 	    -Wunreachable-code -D_GNU_SOURCE -std=c++17 -I$(TOP)
-LDFLAGS  := -L$(TOP)/$(OBJDIR) -Wl,--no-undefined
+LDFLAGS  := -L$(TOP)/$(OBJDIR)  -L/opt/pgsql/lib -L/usr/lib -Wl,--no-undefined
 
 ## Copy conf/config.mk.sample to conf/config.mk and adjust accordingly.
 include conf/config.mk
 
 ## Use RPATH only for debug builds; set RPATH=1 in config.mk.
 ifeq ($(RPATH),1)
-LDRPATH	 := -Wl,-rpath=$(TOP)/$(OBJDIR) -Wl,-rpath=$(TOP)
+LDRPATH	 := -Wl,-rpath=$(TOP)/$(OBJDIR)  -Wl,-rpath=$(TOP)
 endif
 
 PGHOME:=/usr/include/postgresql 
 PGINC:=/opt/pgsql/include
-PGSRC:=/root/pakages/postgresql-10.0/src
+PGSRC:=/root/pakages/postgresql-10.10/src/include
 SEALSRC:=/root/pakages/copy/cryptdb/SEAL/native/src
-SEINCLUDE:=/usr/local/include/SEAL-4.0
+OpenFHE_INCLUDE:=/usr/local/include/openfhe
 SQLINC:=/usr/include/mysql
 SQLLOC:=/root/pakages/copy/cryptdb/mysql-src/include
 NTLIN:=/root/pakages/copy/cryptdb/ntl-6.2.1
-CXXFLAGS += -I$(SEINCLUDE) \
-        -I$(PGHOME) \
-        -I$(PGSRC)/include \
+CXXFLAGS += -I$(PGHOME) \
+        -I$(OpenFHE_INCLUDE) \
+		-I$(OpenFHE_INCLUDE)/core \
+		-I$(OpenFHE_INCLUDE)/pke \
+        -I$(PGSRC)\
         -I$(PGINC)/server \
 		-I$(PGINC)/bin \
         -I$(NTLIN)/include \
@@ -40,10 +42,9 @@ CXXFLAGS += -I$(SEINCLUDE) \
 	    -I$(MYBUILD)/sql \
 	    -DHAVE_CONFIG_H -DMYSQL_SERVER -DEMBEDDED_LIBRARY -DDBUG_OFF -fpermissive \
 	    -DMYSQL_BUILD_DIR=\"$(MYBUILD)\"
-LDFLAGS	 += -lpthread -lrt -ldl -lcrypt -lpq 	-lreadline -L /opt/pgsql/lib 
+LDFLAGS	 += -lpthread -lrt -ldl -lcrypt -lpq -lreadline -lckks
 ## To be populated by Makefrag files
 CPPFLAGS += -I /usr/include/postgresql 
-LDFLAGS += -L /opt/pgsql/lib
 OBJDIRS	:=
 
 .PHONY: all
@@ -78,20 +79,20 @@ always:
 
 $(OBJDIR)/%.o: %.cc
 	@mkdir -p $(@D)
-	$(CXX) -MD $(CXXFLAGS) -c $< -o $@
+	$(CXX) -MD $(CXXFLAGS)  -c $< -o $@
 
 $(OBJDIR)/%.o: $(OBJDIR)/%.cc
 	@mkdir -p $(@D)
-	$(CXX) -MD $(CXXFLAGS) -c $< -o $@
+	$(CXX) -MD $(CXXFLAGS)  -c $< -o $@
 
 include crypto/Makefrag
 # include Crypto-ckks/Makefile
+#include Crypto-ckks/build/Makefile
 include parser/Makefrag
 include main/Makefrag
 # include test/Makefrag
 include util/Makefrag
-include udf/Makefrag
-#= include mysqlproxy/Makefrag
+# include udf/Makefrag
 include tools/import/Makefrag
 include tools/learn/Makefrag
 include scripts/Makefrag

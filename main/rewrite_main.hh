@@ -192,7 +192,10 @@ class CItemTypeDir : public CItemType {
     {
         return lookup(i).do_gather(i, a);
     }
-
+     RewritePlan *do_gather(const Item &i, Analysis &a,bool flag) const
+    {
+        return lookup(i,flag).do_gather(i, a);
+    }
     Item* do_optimize(Item *i, Analysis &a) const
     {
         return lookup(*i).do_optimize(i, a);

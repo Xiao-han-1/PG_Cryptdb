@@ -1,0 +1,13 @@
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities/std
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Source
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Source
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Source/LexerParser
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Utilities
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Source/CTest
+-I/root/pakages/copy/cryptdb/cmake-3.24.2/Source/CPack
+-DLIBARCHIVE_STATIC
+-o
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/QtDialog/moc_AddCacheEntry.cpp
+/root/pakages/copy/cryptdb/cmake-3.24.2/Source/QtDialog/AddCacheEntry.h

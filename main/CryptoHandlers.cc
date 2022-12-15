@@ -99,7 +99,13 @@ public:
                                   const SerialLayer &serial);
 };
 
-
+class FHEFactory : public LayerFactory {
+public:
+    static EncLayer * create(Create_field * const cf,
+                             const std::string &key);
+    static EncLayer * deserialize(unsigned int id,
+                                  const SerialLayer &serial);
+};
 class HOMFactory : public LayerFactory {
 public:
     static EncLayer * create(Create_field * const cf,
@@ -159,6 +165,7 @@ EncLayerFactory::encLayer(onion o, SECLEVEL sl, Create_field * const cf,
         case SECLEVEL::DET: {return DETFactory::create(cf, key);}
         case SECLEVEL::DETJOIN: {return DETJOINFactory::create(cf, key);}
         case SECLEVEL::OPE:{return OPEFactory::create(cf, key);}
+        case SECLEVEL::FHE: {return FHEFactory::create(cf, key);}
         case SECLEVEL::HOM: {return HOMFactory::create(cf, key);}
         case SECLEVEL::SEARCH: {return new Search(cf, key);}
         case SECLEVEL::PLAINVAL: {return new PlainText();}
@@ -189,7 +196,8 @@ EncLayerFactory::deserializeLayer(unsigned int id,
 
         case SECLEVEL::HOM: 
             return new HOM(id, serial);
-
+        case SECLEVEL::FHE: 
+            return new FHE(id, serial);
         case SECLEVEL::SEARCH: 
             return new Search(id, serial);
         
@@ -1561,7 +1569,13 @@ HOM::HOM(Create_field * const f, const std::string &seed_key)
 HOM::HOM(unsigned int id, const std::string &serial)
     : EncLayer(id), seed_key(serial), sk(NULL), waiting(true)
 {}
+FHE::FHE(Create_field * const f, const std::string &seed_key)
+    : seed_key(seed_key), sk(NULL), waiting(true)
+{}
 
+FHE::FHE(unsigned int id, const std::string &serial)
+    : EncLayer(id), seed_key(serial), sk(NULL), waiting(true)
+{}
 Create_field *
 HOM::newCreateField(const Create_field * const cf,
                     const std::string &anonname) const
@@ -1569,7 +1583,13 @@ HOM::newCreateField(const Create_field * const cf,
     return createFieldHelper(cf, 2*nbits/8, MYSQL_TYPE_VARCHAR,
                              anonname, &my_charset_bin);
 }
-
+Create_field *
+FHE::newCreateField(const Create_field * const cf,
+                    const std::string &anonname) const
+{
+    return createFieldHelper(cf, 2*nbits/8, MYSQL_TYPE_VARCHAR,
+                             anonname, &my_charset_bin);
+}
 void
 HOM::unwait() const
 {
@@ -1578,14 +1598,63 @@ HOM::unwait() const
     sk = new Paillier_priv(Paillier_priv::keygen(prng.get(), nbits));
     waiting = false;
 }
+void
+FHE::unwait() const
+{
+    FHE_CKKS* sk=new FHE_CKKS();
+    sk->Init();
+    waiting=false;
+}
+Item *
+FHE::encrypt(const Item &ptext, uint64_t IV) const
+{
+    if (true == waiting) {
+        this->unwait();
+    }
+    const ulonglong val = RiboldMYSQL::val_uint(ptext);
+    // std::cout<<(double)(val)<<"\n";
+    std::string  enc = sk->Encrypt((double)val);
+    Item * const newit =
+        new (current_thd->mem_root) Item_string(make_thd_string(enc),
+                                               enc.length(),
+                        &my_charset_bin);
+    newit->name = NULL; //no alias
 
+    return newit;
+}
+Item *
+FHE_decrypt(Item * const ctext, uint64_t IV) 
+{
+    std::string das = ItemToString(*ctext);
+    // std::string das="/home/demoData/cipherAddLocation.txt";
+    // std::cout<<das<<"\n";
+    FHE_CKKS* sk;
+    sk->Init();
+    double dec = sk->Decrypt(das);
+    long long ls=dec;
+    std::cout<<dec<<" "<<"\n";
+    return new (current_thd->mem_root) Item_int(ls);
+}
+Item *
+FHE::decrypt(Item * const ctext, uint64_t IV) const
+{
+    if (true == waiting) {
+        this->unwait();
+    }
+    std::string das = ItemToString(*ctext);
+    // std::string das="/home/demoData/cipherAddLocation.txt";
+    // std::cout<<das<<"\n";
+    sk->Init();
+    double dec = sk->Decrypt(das);
+    return new (current_thd->mem_root) Item_int((long long)dec);
+}
 Item *
 HOM::encrypt(const Item &ptext, uint64_t IV) const
 {
     if (true == waiting) {
         this->unwait();
     }
-
+    
     const ZZ enc = sk->encrypt(ItemIntToZZ(ptext));
     return ZZToItemStr(enc);
 }
@@ -1599,7 +1668,7 @@ HOM::decrypt(Item * const ctext, uint64_t IV) const
 
     const ZZ enc = ItemStrToZZ(ctext);
     const ZZ dec = sk->decrypt(enc);
-    LOG(encl) << "HOM ciph " << enc << "---->" << dec;
+    LOG(encl) << "FHE ciph " << enc << "---->" << dec;
     return ZZToItemInt(dec);
 }
 
@@ -1663,6 +1732,25 @@ HOM::~HOM() {
     delete sk;
 }
 
+EncLayer *
+FHEFactory::create(Create_field * const cf, const std::string &key)
+{
+//     if (cf->sql_type == MYSQL_TYPE_DECIMAL
+//         || cf->sql_type == MYSQL_TYPE_NEWDECIMAL) {
+//         return new FHE_dec(cf, key);
+//     }
+
+    return new FHE(cf, key);
+}
+
+EncLayer *
+FHEFactory::deserialize(unsigned int id, const SerialLayer &serial)
+{
+    // if (serial.name == "FHE_dec") {
+    //     return new FHE_dec(id, serial.layer_info);
+    // }
+    return new FHE(id, serial.layer_info);
+}
 /******* SEARCH **************************/
 
 Search::Search(Create_field * const f, const std::string &seed_key)

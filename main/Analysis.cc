@@ -91,7 +91,48 @@ operator<<(std::ostream &out, const EncSet &es)
     return out;
 }
 
+OLK
+EncSet::chooseOne(bool flag) const
+{
+    // Order of selection is encoded in this array.
+    // The onions appearing earlier are the more preferred ones.
+    static const onion onion_order[] = {
+        oDET,
+        oOPE,
+        oFHE,
+        oSWP,
+        oPLAIN,
+    };
+    if(flag)
+    {
+        const onion o = oFHE;
+        const auto it = osl.find(o);
+        return OLK(o, it->second.first, it->second.second);
+    }
+    static size_t onion_size =
+        sizeof(onion_order) / sizeof(onion_order[0]);
+    for (size_t i = 0; i < onion_size; i++) {
+        const onion o = onion_order[i];
+        const auto it = osl.find(o);
+        if (it != osl.end()) {
+            if (SECLEVEL::INVALID == it->second.first) {
+                continue;
+            }
+            if (0 == it->second.second
+                && (it->second.first != SECLEVEL::PLAINVAL
+                    && o != oPLAIN)) {
+                /*
+                 * If no key, skip this OLK.
+                 */
+                continue;
+            }
 
+            return OLK(o, it->second.first, it->second.second);
+        }
+    }
+
+    return OLK::invalidOLK();
+}
 OLK
 EncSet::chooseOne() const
 {
@@ -100,7 +141,7 @@ EncSet::chooseOne() const
     static const onion onion_order[] = {
         oDET,
         oOPE,
-        oAGG,
+        oFHE,
         oSWP,
         oPLAIN,
     };

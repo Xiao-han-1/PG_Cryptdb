@@ -13,6 +13,7 @@ class DMLHandler : public SQLHandler {
 public:
     virtual LEX *transformLex(Analysis &a, LEX *lex,
                                const ProxyState &ps) const;
+    
 
 private:
     virtual void gather(Analysis &a, LEX *lex, const ProxyState &ps)

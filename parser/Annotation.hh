@@ -97,5 +97,6 @@ private:
     SECLEVEL DETenclevel;
     SECLEVEL OPEenclevel;
     SECLEVEL AGGenclevel;
+    SECLEVEL FHEenclevel;
     SECLEVEL SWPenclevel;
 };

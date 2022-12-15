@@ -1,0 +1,31 @@
+##################################
+# @brief:make scripts template
+# @author:dablelv
+##################################
+
+#environment var
+VPATH+=dir1:dir2
+
+CC:=g++
+FLAGS=-g -Wall -std=c++11
+INC+=-IheadDir1 -IheadDir2
+LIBDIR+=-LlibDir1 -LlibDir2
+
+CPPDIRS=srcdir1 srcdir2
+
+TARGET:=yourTarget
+
+CPPS=$(shell for dir in ${CPPDIRS};do echo $${dir}/*.cpp;done)
+
+OBJDIR=objDir
+OBJS=$(patsubst %.cpp,${OBJDIR}/%.o,$(notdir ${CPPS}))
+
+${TARGET}:${OBJS}
+	${CC} ${FLAGS} ${OBJS} -o $@ ${LIBDIR}
+	
+${OBJDIR}/%.o:%.cpp
+	${CC} ${FLAGS} ${INC} -o $@ -c $<
+
+.PHONY:clean
+clean:
+	rm -f ${TARGET} ${OBJDIR}/*

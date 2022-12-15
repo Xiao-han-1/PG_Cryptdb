@@ -35,12 +35,24 @@ rewrite(const Item &i, const EncSet &req_enc, Analysis &a)
     const EncSet solution = rp->es_out.intersect(req_enc);
     // FIXME: Use version that takes reason, expects 0 children,
     // and lets us indicate what our EncSet does have.
-    TEST_NoAvailableEncSet(solution, i.type(), req_enc, rp->r.why,
-                           std::vector<std::shared_ptr<RewritePlan> >());
+    // TEST_NoAvailableEncSet(solution, i.type(), req_enc, rp->r.why,
+    //                        std::vector<std::shared_ptr<RewritePlan> >());
 
     return itemTypes.do_rewrite(i, solution.chooseOne(), *rp.get(), a);
 }
+Item *
+rewrite(const Item &i, const EncSet &req_enc, Analysis &a,bool flag)
+{
+    const std::unique_ptr<RewritePlan> &rp =
+        constGetAssert(a.rewritePlans, &i);
+    const EncSet solution = rp->es_out.intersect(req_enc);
+    // FIXME: Use version that takes reason, expects 0 children,
+    // and lets us indicate what our EncSet does have.
+    // TEST_NoAvailableEncSet(solution, i.type(), req_enc, rp->r.why,
+    //                        std::vector<std::shared_ptr<RewritePlan> >());
 
+    return itemTypes.do_rewrite(i, solution.chooseOne(flag), *rp.get(), a);
+}
 TABLE_LIST *
 rewrite_table_list(const TABLE_LIST * const t, const Analysis &a)
 {
@@ -160,14 +172,12 @@ gather(const Item &i, Analysis &a)
 {
     return itemTypes.do_gather(i, a);
 }
-
 void
 gatherAndAddAnalysisRewritePlan(const Item &i, Analysis &a)
 {
     LOG(cdb_v) << "calling gather for item " << i << std::endl;
     a.rewritePlans[&i] = std::unique_ptr<RewritePlan>(gather(i, a));
 }
-
 LEX *
 begin_transaction_lex(const std::string &dbname)
 {

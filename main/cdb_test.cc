@@ -127,7 +127,7 @@ main(int ac, char **av)
                   << std::endl << std::endl;
         exit(1);
     }
-
+    
     using_history();
     read_history(user_histfile().c_str());
     atexit(__write_history);

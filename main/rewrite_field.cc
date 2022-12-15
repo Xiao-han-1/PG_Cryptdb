@@ -130,7 +130,7 @@ class ANON : public CItemSubtypeIT<Item_field, Item::Type::FIELD_ITEM> {
                 static_cast<const Item_insert_value &>(i);
             return make_item_insert_value(insert_i, res);
         }
-
+        res->name=res->field_name;
         return res;
     }
 /*

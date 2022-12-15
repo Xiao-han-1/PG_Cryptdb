@@ -40,7 +40,7 @@ DBMeta::doFetchChildren(const std::unique_ptr<Connect> &e_conn,
         const std::string child_serial_object(PQgetvalue(db_res->n,i, 0));
         const std::string child_key(PQgetvalue(db_res->n,i, 1));
         const std::string child_id(PQgetvalue(db_res->n,i, 2));
-        std::cout<<child_serial_object<<" "<<child_key<<" "<<child_id<<"\n";
+        // std::cout<<child_serial_object<<" "<<child_key<<" "<<child_id<<"\n";
         DBMeta *const new_old_meta =
             deserialHandler(child_key, child_serial_object, child_id);
         out_vec.push_back(new_old_meta);
@@ -547,7 +547,7 @@ bool
 IsMySQLTypeNumerics(enum_pg_types t) {
     switch (t) {
         case BIGINT:
-
+        case  decimal:
             return true;
         default: return false;
     }

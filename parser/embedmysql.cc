@@ -18,6 +18,18 @@
 #include <util/errstream.hh>
 #include <util/rob.hh>
 #include </usr/include/postgresql/libpq-fe.h>
+
+#include "sql_priv.h"
+#include "unireg.h"
+#include "strfunc.h"
+#include "sql_class.h"
+#include "set_var.h"
+#include "sql_base.h"
+#include "rpl_handler.h"
+#include "sql_parse.h"
+#include "sql_plugin.h"
+#include "derror.h"
+#include "item.h"
 using namespace std;
 static bool embed_active = false;
 embedmysql::embedmysql(const std::string &dir)
@@ -136,6 +148,7 @@ void sql_conn()
     }
     return ;
 }
+
 query_parse::query_parse(const std::string &db, const std::string &q)
 {
     MYSQL* conn;
@@ -177,7 +190,7 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         a<<*lex;
         std::string p;
         p=a.str();
-        std::cout<<p<<"\n";
+        // std::cout<<p<<"\n";
         switch (lex->sql_command) {
         case SQLCOM_SHOW_DATABASES:
         case SQLCOM_SHOW_TABLES:
@@ -297,11 +310,11 @@ query_parse::query_parse(const std::string &db, const std::string &q)
         } else if (lex->sql_command == SQLCOM_INSERT) {
             List_iterator_fast<List_item> its(lex->many_values);
             List_item *values = its++;
-            std::stringstream b;
-            b<<*lex;
-        std::string p;
-        p=b.str();
-        std::cout<<p<<"\n";
+        //     std::stringstream b;
+        //     b<<*lex;
+        // std::string p;
+        // p=b.str();
+        // std::cout<<p<<"\n";
             // mysql_prepare_insert(t, lex->query_tables, lex->query_tables->table,
             //                          lex->field_list, values,
             //                          lex->update_list, lex->value_list,
@@ -320,23 +333,23 @@ query_parse::query_parse(const std::string &db, const std::string &q)
                     mysql_thrower() << "setup_fields";
             }
         } else if (lex->sql_command == SQLCOM_UPDATE) {
-            if (mysql_prepare_update(t, lex->query_tables, &lex->select_lex.where,
-                                     lex->select_lex.order_list.elements,
-                                     lex->select_lex.order_list.first))
-                mysql_thrower() << "mysql_prepare_update";
+            // if (mysql_prepare_update(t, lex->query_tables, &lex->select_lex.where,
+            //                          lex->select_lex.order_list.elements,
+            //                          lex->select_lex.order_list.first))
+            //     mysql_thrower() << "mysql_prepare_update";
 
-            if (setup_fields_with_no_wrap(t, 0, lex->select_lex.item_list,
-                                          MARK_COLUMNS_NONE, 0, 0))
-                mysql_thrower() << "setup_fields_with_no_wrap";
+            // if (setup_fields_with_no_wrap(t, 0, lex->select_lex.item_list,
+            //                               MARK_COLUMNS_NONE, 0, 0))
+            //     mysql_thrower() << "setup_fields_with_no_wrap";
 
-            if (setup_fields(t, 0, lex->value_list,
-                             MARK_COLUMNS_NONE, 0, 0))
-                mysql_thrower() << "setup_fields";
+            // if (setup_fields(t, 0, lex->value_list,
+            //                  MARK_COLUMNS_NONE, 0, 0))
+            //     mysql_thrower() << "setup_fields";
 
-            List<Item> all_fields;
-            if (fix_inner_refs(t, all_fields, &lex->select_lex,
-                               lex->select_lex.ref_pointer_array))
-                mysql_thrower() << "fix_inner_refs";
+            // List<Item> all_fields;
+            // if (fix_inner_refs(t, all_fields, &lex->select_lex,
+            //                    lex->select_lex.ref_pointer_array))
+            //     mysql_thrower() << "fix_inner_refs";
         } else {
             thrower() << "don't know how to prepare command " << lex->sql_command;
         }

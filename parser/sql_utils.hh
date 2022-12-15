@@ -11,7 +11,7 @@
 
 
 typedef enum enum_pg_types {
-  BIGINT=20, TEXT=25,decimal=1700,ERROR=999
+  BIGINT=20, TEXT=25,decimal=1700,BOOL=16,ERROR=999
 } enum_pg_types;
 // must be called before we can use any MySQL AP
 typedef struct new_Item {

@@ -304,7 +304,7 @@ string
 encrypt_AES_CMC(const string &ptext, const AES_KEY * enckey, bool dopad)
 {
     string firstenc = encrypt_AES_CBC(ptext, enckey, "0", dopad);
-
+    // std::cout<<firstenc<<" "<<firstenc.length()<<"\n";
     string rev = reverse(firstenc);
 
     return encrypt_AES_CBC(rev, enckey, "0", false);

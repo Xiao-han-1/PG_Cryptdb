@@ -10,6 +10,7 @@
 typedef enum onion {
     oDET,
     oOPE,
+    oFHE,
     oAGG,
     oSWP,
     oPLAIN,
@@ -30,6 +31,7 @@ enum class SECLEVEL {
     DET,
     SEARCH,
     HOM,
+    FHE,
     RND,
 };
 
@@ -44,13 +46,15 @@ static onionlayout NUM_ONION_LAYOUT = {
     {oDET, std::vector<SECLEVEL>({SECLEVEL::DETJOIN, SECLEVEL::DET,
                                   SECLEVEL::RND})},
     {oOPE, std::vector<SECLEVEL>({SECLEVEL::OPE, SECLEVEL::RND})},
-    {oAGG, std::vector<SECLEVEL>({SECLEVEL::HOM})}
+    // {oAGG, std::vector<SECLEVEL>({SECLEVEL::HOM})},
+    {oFHE, std::vector<SECLEVEL>({SECLEVEL::FHE})}
 };
 
 static onionlayout BEST_EFFORT_NUM_ONION_LAYOUT = {
     {oDET, std::vector<SECLEVEL>({SECLEVEL::DETJOIN, SECLEVEL::DET,
                                   SECLEVEL::RND})},
     {oOPE, std::vector<SECLEVEL>({SECLEVEL::OPE, SECLEVEL::RND})},
+    {oFHE, std::vector<SECLEVEL>({SECLEVEL::FHE})},
     {oAGG, std::vector<SECLEVEL>({SECLEVEL::HOM})},
     // Requires SECLEVEL::DET, otherwise you will have to implement
     // encoding for negative numbers in SECLEVEL::RND.

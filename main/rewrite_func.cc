@@ -90,8 +90,8 @@ typical_gather(Analysis &a, const Item_func &i, const EncSet &my_es,
     const EncSet solution =
         my_es.intersect(childr_rp[0]->es_out).
               intersect(childr_rp[1]->es_out);
-    TEST_NoAvailableEncSet(solution, i.type(), my_es, why,
-                           childr_rp);
+    // TEST_NoAvailableEncSet(solution, i.type(), my_es, why,
+    //                        childr_rp);
 
     std::function<EncSet ()> getEncSet =
         [encset_from_intersection, solution] ()
@@ -441,9 +441,22 @@ static class ANON : public CItemSubtypeFT<Item_func_get_system_var, Item_func::F
         return &const_cast<Item_func_get_system_var &>(i);
     }
 } ANON;
-
+// std::string
+// ItemString(const Item &i) {
+    
+//     return s0;
+// }
 template<class IT, const char *NAME>
 class CItemAdditive : public CItemSubtypeFN<IT, NAME> {
+    Item * FHE_SUM(Item &i1, Item &i2) const
+    {
+    std::string arg1=i1.name;
+    std::string arg2=i2.name;
+    std::string re=arg1+'+'+arg2;
+    return new (current_thd->mem_root) Item_string(make_thd_string(re),
+                                                   re.length(),
+                                                   &my_charset_bin);
+    }
     virtual RewritePlan *
     do_gather_type(const IT &i, Analysis &a) const
     {
@@ -472,24 +485,25 @@ class CItemAdditive : public CItemSubtypeFN<IT, NAME> {
 
         LOG(cdb_v) << "Rewrite plan is " << &rp << std::endl;
 
-        Item *const arg0 =
+        Item * arg0 =
             itemTypes.do_rewrite(*args[0], constr,
                                  *rp.childr_rp[0].get(), a);
-        Item *const arg1 =
+        Item * arg1 =
             itemTypes.do_rewrite(*args[1], constr,
                                  *rp.childr_rp[1].get(), a);
 
-        if (oAGG == constr.o) {
-            OnionMeta *const om = rp.olk.key->getOnionMeta(oAGG);
+        if (oFHE == constr.o) {
+            OnionMeta *const om = rp.olk.key->getOnionMeta(oFHE);
             assert(om);
             EncLayer const &el = a.getBackEncLayer(*om);
-            TEST_UnexpectedSecurityLevel(oAGG, SECLEVEL::HOM,
+            TEST_UnexpectedSecurityLevel(oFHE, SECLEVEL::FHE,
                                          el.level());
-            return static_cast<const HOM &>(el).sumUDF(arg0, arg1);
+            return FHE_SUM(*arg0, *arg1);
         } else {
             return new IT(arg0, arg1);
         }
     }
+    
 };
 
 extern const char str_plus[] = "+";
