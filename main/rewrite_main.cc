@@ -1324,10 +1324,11 @@ std::string& erase_all(std::string& str, std::string strold)
 }
 std::string& tran_find(std::string& str)
 {
-  int pos =str.find("AS");
-  int pos1=str.find("from");
+    std::cout<<str<<"\n";
+  int pos =str.find("select");
+  int pos1=str.find("AS");
   if(pos!=std::string::npos&&pos1!=std::string::npos)
-  str.erase(pos,pos1-pos);
+  str.erase(pos+7,pos1-pos-5+1);
   return str;
 }
 static std::string
@@ -1336,8 +1337,8 @@ lex_to_query(LEX *const lex)
     std::string tran,p;
     std::stringstream o;
     o<<*lex;
-    
     tran=o.str();
+    if(tran.find("select")!=std::string::npos)
     tran=tran_find(tran);
     if(tran.find("insert")==std::string::npos)
     tran=erase_all(tran,"'");

@@ -969,7 +969,9 @@ rewrite_select_lex(const st_select_lex &select_lex, Analysis &a)
     // rewrite_proj uses.
     st_select_lex *const new_select_lex =
         rewrite_filters_lex(select_lex, a);
-
+    std::stringstream p;
+    p<<*new_select_lex;
+    std::cout<<p.str()<<"\n";
     LOG(cdb_v) << "rewrite select lex input is "
                << select_lex << std::endl;
     auto item_it =
@@ -984,12 +986,20 @@ rewrite_select_lex(const st_select_lex &select_lex, Analysis &a)
                    << item->name << std::endl;
         rewrite_proj(*item,
                      *constGetAssert(a.rewritePlans, item).get(),
-                     a, &newList);
+                                   a, &newList);
     }
-
+ std::stringstream o;
+    o<<newList;
+    std::cout<<o.str()<<"\n";
+    std::stringstream l;
+    l<<newList;
+    std::cout<<l.str()<<"\n";
     // TODO(stephentu): investigate whether or not this is a memory leak
     new_select_lex->item_list = newList;
-
+   
+    std::stringstream q;
+    q<<*new_select_lex;
+    std::cout<<q.str()<<"\n";
     return new_select_lex;
 }
 

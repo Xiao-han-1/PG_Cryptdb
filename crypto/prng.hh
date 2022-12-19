@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include </root/pakages/copy/cryptdb/util/errstream.hh>
+#include <util/errstream.hh>
 #include <NTL/ZZ.h>
-#include </root/pakages/copy/cryptdb/crypto/bn.hh>
+#include <crypto/bn.hh>
 typedef unsigned char		uint8_t;
 class PRNG {
  public:
