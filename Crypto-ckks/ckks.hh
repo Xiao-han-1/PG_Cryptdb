@@ -19,8 +19,8 @@ class FHE_CKKS {
     std::string Sub(std::string c1,std::string c2);
     int Compare(std::string c1,std::string c2);
  private:
-    const int multDepth    = 5;
-    const int scaleModSize = 40;
+    const int multDepth    = 2;
+    const int scaleModSize = 20;
     const uint batchSize  = 32;
     int k=0;
 };

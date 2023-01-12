@@ -104,12 +104,12 @@ void FHE_CKKS::Init()
 int k_init()
 {
  std::string name ="/k.txt";
-//  if(!exists_test( DATAFOLDER + name))
-//  {
-//     ofstream fout( DATAFOLDER + name);
-//     fout<<0;
-//    fout.close();
-//  }
+ if(!exists_test( DATAFOLDER + name))
+ {
+    ofstream fout( DATAFOLDER + name);
+    fout<<0;
+   fout.close();
+ }
 int k;
   ifstream readFile( DATAFOLDER + name);
   readFile >> k;
